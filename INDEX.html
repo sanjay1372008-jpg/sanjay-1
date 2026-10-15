@@ -1,0 +1,2845 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f5ef">
+  <meta name="description" content="EverAfter Events creates extraordinary luxury weddings, destination celebrations and bespoke wedding experiences.">
+  <meta property="og:title" content="EverAfter Events — Your Forever Begins Here">
+  <meta property="og:description" content="Thoughtfully designed celebrations, unforgettable destinations and timeless wedding experiences.">
+  <meta property="og:type" content="website">
+  <title>EverAfter Events | Luxury Wedding Planning Studio</title>
+
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       EVERAFTER EVENTS — GLOBAL DESIGN SYSTEM
+       ========================================================= */
+    :root {
+      color-scheme: light;
+      --bg: #f8f5ef;
+      --surface: #fffdf9;
+      --surface-alt: #f0eae0;
+      --text: #29251f;
+      --muted: #777168;
+      --accent: #ad8b59;
+      --accent-dark: #84663e;
+      --border: rgba(76, 62, 45, .16);
+      --shadow: 0 18px 55px rgba(45, 34, 21, .09);
+      --header-bg: rgba(248, 245, 239, .94);
+      --overlay: rgba(22, 19, 16, .43);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+      --container: 1240px;
+      --radius: 4px;
+      --transition: 280ms ease;
+    }
+
+    body.dark-mode {
+      color-scheme: dark;
+      --bg: #171614;
+      --surface: #211f1c;
+      --surface-alt: #2a2722;
+      --text: #f6f0e7;
+      --muted: #b5ab9d;
+      --accent: #d0b17b;
+      --accent-dark: #e2c995;
+      --border: rgba(231, 213, 183, .17);
+      --shadow: 0 18px 55px rgba(0, 0, 0, .25);
+      --header-bg: rgba(23, 22, 20, .95);
+      --overlay: rgba(12, 11, 10, .57);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.75;
+      transition: background var(--transition), color var(--transition);
+      overflow-wrap: break-word;
+    }
+
+    body.menu-open { overflow: hidden; }
+
+    img {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+    button { color: inherit; }
+    button:focus-visible, a:focus-visible, input:focus-visible,
+    select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    ::selection { background: var(--accent); color: #fff; }
+
+    .container {
+      width: min(var(--container), calc(100% - 64px));
+      margin-inline: auto;
+    }
+
+    .section { padding: 112px 0; }
+    .section-sm { padding: 76px 0; }
+    .surface { background: var(--surface); }
+    .surface-alt { background: var(--surface-alt); }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      color: var(--accent-dark);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 29px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1, h2, h3, h4 {
+      font-family: var(--serif);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -.035em;
+    }
+
+    h1 { font-size: clamp(3.4rem, 8.5vw, 7.8rem); }
+    h2 { font-size: clamp(2.45rem, 5vw, 4.8rem); }
+    h3 { font-size: clamp(1.55rem, 2.6vw, 2.25rem); }
+    h4 { font-size: 1.35rem; }
+    p { color: var(--muted); }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading.centered {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .section-heading.centered .eyebrow { justify-content: center; }
+
+    .section-heading p {
+      max-width: 590px;
+      margin-bottom: 0;
+      font-size: 16px;
+    }
+
+    .section-heading.centered p { margin-inline: auto; }
+
+    .btn {
+      display: inline-flex;
+      min-height: 51px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 13px 24px;
+      border: 1px solid var(--accent);
+      border-radius: 0;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-align: center;
+      text-transform: uppercase;
+      transition: background var(--transition), color var(--transition),
+        border-color var(--transition), transform var(--transition);
+    }
+
+    .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); transform: translateY(-2px); }
+
+    .btn-outline { background: transparent; color: var(--text); }
+    .btn-outline:hover { color: #fff; }
+    .btn-light { background: #fffaf2; border-color: #fffaf2; color: #28231c; }
+    .btn-light:hover { background: var(--accent); color: #fff; }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--accent);
+      color: var(--text);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .text-link span { transition: transform var(--transition); }
+    .text-link:hover span { transform: translateX(5px); }
+
+    .section-rule { border: 0; border-top: 1px solid var(--border); margin: 0; }
+
+    /* TOP ANNOUNCEMENT STRIP */
+    .announcement {
+      padding: 7px 18px;
+      background: #302920;
+      color: #f7eee0;
+      font-size: 9px;
+      letter-spacing: .17em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .announcement span { color: #d7b982; }
+
+    /* STICKY HEADER AND NAVIGATION */
+    .site-header {
+      position: sticky;
+      z-index: 1000;
+      top: 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--header-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-wrap {
+      display: flex;
+      min-height: 84px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 25px;
+      letter-spacing: -.045em;
+    }
+
+    .brand-caption {
+      margin-top: 6px;
+      color: var(--accent-dark);
+      font-size: 8px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(12px, 1.5vw, 23px);
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 10px 0;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: color var(--transition);
+    }
+
+    .nav-link::after {
+      position: absolute;
+      right: 0;
+      bottom: 3px;
+      left: 0;
+      height: 1px;
+      background: var(--accent);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .nav-link:hover, .nav-link.active { color: var(--text); }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+    .theme-toggle, .menu-toggle {
+      display: inline-grid;
+      width: 39px;
+      height: 39px;
+      flex-shrink: 0;
+      place-items: center;
+      border: 1px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    .theme-toggle:hover, .menu-toggle:hover { border-color: var(--accent); background: var(--surface-alt); }
+
+    .nav-cta { min-height: 42px; padding: 10px 14px; font-size: 9px; }
+    .menu-toggle { display: none; font-size: 20px; }
+
+    /* MOBILE DRAWER */
+    .mobile-drawer {
+      position: fixed;
+      z-index: 999;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 115px 28px 36px;
+      overflow-y: auto;
+      background: var(--bg);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(18px);
+      transition: opacity 240ms ease, transform 240ms ease;
+    }
+
+    .mobile-drawer.open { opacity: 1; pointer-events: auto; transform: translateX(0); }
+    .mobile-drawer .nav-link {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--serif);
+      font-size: 25px;
+      font-weight: 400;
+    }
+
+    .mobile-drawer .nav-link::after { display: none; }
+    .mobile-drawer .btn { margin-top: 25px; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: min(790px, calc(100svh - 105px));
+      align-items: center;
+      overflow: hidden;
+      background: #55493b;
+      color: #fff;
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(21, 18, 15, .69) 0%, rgba(21, 18, 15, .30) 56%, rgba(21, 18, 15, .08) 100%),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2400&q=85");
+      background-position: center 52%;
+      background-size: cover;
+      content: "";
+      animation: hero-arrive 1.4s ease both;
+    }
+
+    .hero::after {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,.12);
+      margin: 17px;
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(var(--container), calc(100% - 100px));
+      margin: 0 auto;
+      padding: 100px 0 115px;
+    }
+
+    .hero .eyebrow { color: #e4c99a; }
+    .hero h1 { max-width: 850px; margin-bottom: 24px; }
+    .hero h1 em { color: #ead2a8; font-weight: 400; }
+    .hero-copy { max-width: 490px; margin-bottom: 32px; color: #f1eae1; font-size: 16px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; }
+    .hero-note { margin-top: 55px; color: rgba(255,255,255,.77); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; }
+
+    .hero-side-label {
+      position: absolute;
+      z-index: 2;
+      right: 38px;
+      bottom: 70px;
+      color: #f6e9d2;
+      font-size: 9px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+
+    @keyframes hero-arrive {
+      from { opacity: .5; transform: scale(1.045); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* EDITORIAL INTRO */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: clamp(40px, 8vw, 110px);
+    }
+
+    .intro-copy h2 { margin-bottom: 25px; }
+    .intro-copy p { max-width: 510px; margin-bottom: 28px; }
+    .intro-image-wrap { position: relative; padding: 0 35px 35px 0; }
+    .intro-image-wrap::after {
+      position: absolute;
+      z-index: 0;
+      right: 0;
+      bottom: 0;
+      width: 72%;
+      height: 72%;
+      border: 1px solid var(--accent);
+      content: "";
+    }
+
+    .intro-image {
+      position: relative;
+      z-index: 1;
+      height: 560px;
+      background: var(--surface-alt);
+      object-position: center;
+    }
+
+    .image-caption {
+      position: absolute;
+      z-index: 2;
+      right: -10px;
+      bottom: 60px;
+      max-width: 220px;
+      padding: 17px 20px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    /* SIGNATURE SERVICES */
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 23px; }
+
+    .service-card { min-width: 0; }
+    .service-card .media { position: relative; overflow: hidden; background: var(--surface-alt); }
+    .service-card img { height: 330px; transition: transform 650ms cubic-bezier(.2,.7,.2,1); }
+    .service-card:hover img { transform: scale(1.055); }
+    .service-number { margin: 22px 0 10px; color: var(--accent-dark); font-size: 10px; letter-spacing: .15em; }
+    .service-card h3 { margin-bottom: 12px; }
+    .service-card p { margin-bottom: 19px; font-size: 13px; }
+
+    /* FEATURED EXPERIENCE BANNER */
+    .split-banner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 530px;
+      background: var(--surface-alt);
+    }
+
+    .split-banner .banner-image { min-height: 450px; background: var(--surface-alt); }
+    .split-banner .banner-image img { height: 100%; min-height: 450px; }
+    .split-banner .banner-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(35px, 7vw, 90px); }
+    .split-banner .banner-copy h2 { margin-bottom: 24px; }
+    .split-banner .banner-copy p { max-width: 430px; margin-bottom: 28px; }
+
+    /* VALUES AND PROCESS */
+    .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .value-card { padding: 32px 26px; border-top: 1px solid var(--accent); background: var(--surface); }
+    .value-card .symbol { color: var(--accent-dark); font-family: var(--serif); font-size: 31px; }
+    .value-card h3 { margin: 18px 0 12px; font-size: 24px; }
+    .value-card p { margin-bottom: 0; font-size: 13px; }
+
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+    .process-step { border-top: 1px solid var(--border); padding-top: 22px; }
+    .process-step .step { color: var(--accent-dark); font-size: 10px; letter-spacing: .2em; }
+    .process-step h3 { margin: 16px 0 12px; font-size: 25px; }
+    .process-step p { font-size: 13px; }
+
+    /* STORY PAGE */
+    .page-hero {
+      position: relative;
+      display: flex;
+      min-height: 390px;
+      align-items: center;
+      overflow: hidden;
+      background: #51463b;
+      color: white;
+    }
+
+    .page-hero::before {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(90deg, rgba(25,22,18,.76), rgba(25,22,18,.15)),
+        var(--page-image);
+      background-position: center;
+      background-size: cover;
+      content: "";
+    }
+
+    .page-hero-inner { position: relative; z-index: 1; width: min(var(--container), calc(100% - 64px)); margin: 0 auto; padding: 70px 0; }
+    .page-hero h1 { max-width: 850px; margin-bottom: 15px; font-size: clamp(3rem, 7vw, 6rem); }
+    .page-hero p { max-width: 540px; margin-bottom: 0; color: #f0e8dd; }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 70px; }
+    .story-grid img { height: 540px; background: var(--surface-alt); }
+    .story-copy h2 { margin-bottom: 22px; }
+    .story-copy p { margin-bottom: 20px; }
+
+    .timeline { border-left: 1px solid var(--accent); margin-left: 8px; padding-left: 28px; }
+    .timeline-item { position: relative; padding: 0 0 30px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before { position: absolute; top: 8px; left: -33px; width: 9px; height: 9px; border: 1px solid var(--accent); border-radius: 50%; background: var(--bg); content: ""; }
+    .timeline-item .year { color: var(--accent-dark); font-size: 10px; letter-spacing: .16em; }
+    .timeline-item h3 { margin: 7px 0; font-size: 23px; }
+    .timeline-item p { margin-bottom: 0; font-size: 13px; }
+
+    /* SERVICES PAGE */
+    .service-detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .service-detail {
+      display: grid;
+      grid-template-columns: .88fr 1.12fr;
+      min-width: 0;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .service-detail img { height: 100%; min-height: 265px; }
+    .service-detail-copy { padding: 26px; }
+    .service-detail-copy .number { color: var(--accent-dark); font-size: 10px; letter-spacing: .17em; }
+    .service-detail-copy h3 { margin: 13px 0; font-size: 25px; }
+    .service-detail-copy p { font-size: 12px; }
+    .service-detail-copy .text-link { font-size: 9px; }
+
+    /* UNIVERSAL CTA */
+    .cta-band {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 24px;
+      background: #312a22;
+      color: #fff8ed;
+      text-align: center;
+    }
+
+    .cta-band::before {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(173,139,89,.22), transparent 65%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .cta-band .container { position: relative; z-index: 1; }
+    .cta-band .eyebrow { color: #dfc18e; justify-content: center; }
+    .cta-band h2 { max-width: 800px; margin: 0 auto 20px; }
+    .cta-band p { max-width: 560px; margin: 0 auto 30px; color: #ded4c5; }
+
+    /* ACCESSIBILITY AND ANIMATION */
+    .reveal { /* Optional enhancement only; content stays visible by default. */ }
+    .image-fallback { background: linear-gradient(135deg, var(--surface-alt), var(--bg)); }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* RESPONSIVE FOUNDATION */
+    @media (max-width: 1150px) {
+      .desktop-nav { gap: 11px; }
+      .nav-link { font-size: 9px; }
+      .nav-cta { display: none; }
+      .brand-name { font-size: 23px; }
+      .service-detail { grid-template-columns: 1fr; }
+      .service-detail img { height: 260px; min-height: 0; }
+    }
+
+    @media (max-width: 900px) {
+      .container { width: min(100% - 42px, var(--container)); }
+      .section { padding: 82px 0; }
+      .desktop-nav { display: none; }
+      .menu-toggle { display: inline-grid; }
+      .nav-wrap { min-height: 75px; }
+      .nav-cta { display: inline-flex; }
+      .hero { min-height: 690px; }
+      .hero-inner { width: calc(100% - 64px); }
+      .intro-grid, .story-grid { grid-template-columns: 1fr; gap: 45px; }
+      .intro-image-wrap { max-width: 650px; }
+      .intro-image { height: 470px; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-grid .service-card:last-child { grid-column: auto; }
+      .split-banner { grid-template-columns: 1fr; }
+      .split-banner .banner-image, .split-banner .banner-image img { min-height: 390px; max-height: 500px; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); row-gap: 35px; }
+      .story-grid img { height: 440px; }
+      .story-copy { order: -1; }
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 14px; }
+      .container { width: calc(100% - 36px); }
+      .section { padding: 65px 0; }
+      .section-sm { padding: 50px 0; }
+      .announcement { font-size: 8px; letter-spacing: .1em; }
+      .nav-wrap { min-height: 69px; gap: 8px; }
+      .brand-name { font-size: 21px; }
+      .brand-caption { font-size: 7px; }
+      .nav-actions { gap: 7px; }
+      .theme-toggle, .menu-toggle { width: 36px; height: 36px; }
+      .nav-cta { display: none; }
+      .hero { min-height: 670px; min-height: 78svh; }
+      .hero::after { margin: 9px; }
+      .hero-inner { width: calc(100% - 48px); padding: 80px 0; }
+      .hero h1 { font-size: clamp(3.2rem, 15vw, 5.3rem); }
+      .hero-copy { font-size: 14px; }
+      .hero-actions { align-items: stretch; flex-direction: column; max-width: 290px; }
+      .hero-actions .btn { width: 100%; }
+      .hero-note { margin-top: 35px; font-size: 8px; }
+      .hero-side-label { right: 17px; bottom: 30px; font-size: 8px; }
+      .section-heading { margin-bottom: 32px; }
+      .section-heading p { font-size: 14px; }
+      .intro-image-wrap { padding: 0 18px 20px 0; }
+      .intro-image { height: 370px; }
+      .image-caption { right: -4px; bottom: 35px; max-width: 175px; padding: 12px; font-size: 15px; }
+      .service-grid, .value-grid, .process-grid, .service-detail-grid { grid-template-columns: 1fr; }
+      .service-card img { height: 310px; }
+      .value-grid { gap: 16px; }
+      .value-card { padding: 25px; }
+      .split-banner .banner-image, .split-banner .banner-image img { min-height: 300px; }
+      .split-banner .banner-copy { padding: 40px 25px; }
+      .story-grid { gap: 35px; }
+      .story-grid img { height: 350px; }
+      .page-hero { min-height: 330px; }
+      .page-hero-inner { width: calc(100% - 40px); }
+      .page-hero h1 { font-size: clamp(2.9rem, 13vw, 4.5rem); }
+      .service-detail { grid-template-columns: 1fr; }
+      .service-detail img { height: 250px; }
+      .cta-band { padding: 70px 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">
+    Thoughtfully designed celebrations, beautifully remembered <span>✦</span> Inquire for 2027
+  </div>
+
+  <!-- Shared sticky navigation -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" data-page="home" aria-label="EverAfter Events home">
+        <span class="brand-name">EverAfter Events</span>
+        <span class="brand-caption">The art of celebration</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#home" data-page="home">Home</a>
+        <a class="nav-link" href="#story" data-page="story">Our Story</a>
+        <a class="nav-link" href="#services" data-page="services">Services</a>
+        <a class="nav-link" href="#portfolio" data-page="portfolio">Portfolio</a>
+        <a class="nav-link" href="#destinations" data-page="destinations">Destinations</a>
+        <a class="nav-link" href="#experiences" data-page="experiences">Experiences</a>
+        <a class="nav-link" href="#packages" data-page="packages">Packages</a>
+        <a class="nav-link" href="#contact" data-page="contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button"
+          aria-label="Switch to dark mode" title="Switch theme">☾</button>
+        <a class="btn nav-cta" href="#contact" data-page="contact">Let's Talk <span>↗</span></a>
+        <button class="menu-toggle" id="menuToggle" type="button"
+          aria-label="Open navigation menu" aria-expanded="false"
+          aria-controls="mobileDrawer">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true">
+    <a class="nav-link active" href="#home" data-page="home">Home</a>
+    <a class="nav-link" href="#story" data-page="story">Our Story</a>
+    <a class="nav-link" href="#services" data-page="services">Wedding Services</a>
+    <a class="nav-link" href="#portfolio" data-page="portfolio">Our Portfolio</a>
+    <a class="nav-link" href="#destinations" data-page="destinations">Destinations & Venues</a>
+    <a class="nav-link" href="#experiences" data-page="experiences">Signature Experiences</a>
+    <a class="nav-link" href="#packages" data-page="packages">Packages & Planning</a>
+    <a class="nav-link" href="#contact" data-page="contact">Contact & Consultation</a>
+    <a class="btn" href="#contact" data-page="contact">Begin Your Story ↗</a>
+  </nav>
+
+  <!-- PART 1 PAGE 01: HOME -->
+  <main id="pageContainer">
+    <section class="page-view" id="page-home" data-view="home">
+      <section class="hero" aria-labelledby="home-title">
+        <div class="hero-inner">
+          <p class="eyebrow">Luxury weddings · Thoughtfully yours</p>
+          <h1 id="home-title">Your Forever<br><em>Begins Here.</em></h1>
+          <p class="hero-copy">
+            The most beautiful celebrations are never simply planned.
+            They are imagined, felt and brought to life around your story.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-light" href="#contact" data-page="contact">Begin Your Story <span>↗</span></a>
+            <a class="btn btn-outline btn-light" href="#portfolio" data-page="portfolio">Explore Our Work <span>→</span></a>
+          </div>
+          <p class="hero-note">Personal by nature · Extraordinary by design</p>
+        </div>
+        <span class="hero-side-label">Celebrations with meaning — since 2014</span>
+      </section>
+
+      <section class="section">
+        <div class="container intro-grid">
+          <div class="intro-copy">
+            <p class="eyebrow">A little about us</p>
+            <h2>Not just a day.<br>A feeling that stays.</h2>
+            <p>
+              At EverAfter Events, we believe your wedding should feel unmistakably
+              like you. From the first thoughtful detail to the final dance, we
+              create celebrations with soul, elegance and an effortless sense of wonder.
+            </p>
+            <p>
+              Our approach brings thoughtful planning together with expressive design,
+              trusted creative partners and a deep respect for the moments that matter.
+            </p>
+            <a class="text-link" href="#story" data-page="story">Discover our philosophy <span>→</span></a>
+          </div>
+          <div class="intro-image-wrap">
+            <img class="intro-image" loading="lazy"
+              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1100&q=85"
+              alt="Romantic wedding reception with elegant flowers and warm candlelight">
+            <div class="image-caption">Every detail, a reflection of your story.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="eyebrow">What we create</p>
+            <h2>Celebrations, beautifully considered.</h2>
+            <p>From the first idea to the last farewell, every element is shaped around the way you want your day to feel.</p>
+          </div>
+
+          <div class="service-grid">
+            <article class="service-card">
+              <div class="media">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80"
+                  alt="Romantic outdoor wedding ceremony beneath a floral arrangement">
+              </div>
+              <p class="service-number">01 / THE CELEBRATION</p>
+              <h3>Wedding Planning</h3>
+              <p>Thoughtful, end-to-end planning that gives you space to be present for every unforgettable moment.</p>
+              <a class="text-link" href="#services" data-page="services">Explore planning <span>→</span></a>
+            </article>
+
+            <article class="service-card">
+              <div class="media">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=80"
+                  alt="Refined wedding dinner table with flowers, glassware and elegant styling">
+              </div>
+              <p class="service-number">02 / THE ATMOSPHERE</p>
+              <h3>Wedding Design</h3>
+              <p>Distinctive visual stories, expressive floral artistry and details that turn a beautiful space into yours.</p>
+              <a class="text-link" href="#experiences" data-page="experiences">Explore design <span>→</span></a>
+            </article>
+
+            <article class="service-card">
+              <div class="media">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=80"
+                  alt="Couple celebrating their wedding in a scenic outdoor destination">
+              </div>
+              <p class="service-number">03 / THE JOURNEY</p>
+              <h3>Destination Weddings</h3>
+              <p>Meaningful celebrations in extraordinary places, with thoughtful guest care and considered logistics.</p>
+              <a class="text-link" href="#destinations" data-page="destinations">Discover destinations <span>→</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container split-banner">
+          <div class="banner-image">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=85"
+              alt="Intimate outdoor celebration surrounded by lush garden scenery">
+          </div>
+          <div class="banner-copy">
+            <p class="eyebrow">The destination edit</p>
+            <h2>A beautiful place.<br>Your kind of magic.</h2>
+            <p>
+              A Tuscan villa, a sunlit coastline or a quiet garden estate.
+              We help you find a setting that feels right, then bring every
+              element together in a seamless celebration.
+            </p>
+            <a class="btn" href="#destinations" data-page="destinations">Explore destinations ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface-alt">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="eyebrow">The EverAfter difference</p>
+            <h2>Thoughtful by design.</h2>
+            <p>Our best work starts with listening and ends with a celebration that feels natural, personal and completely yours.</p>
+          </div>
+          <div class="value-grid">
+            <article class="value-card">
+              <span class="symbol">01</span>
+              <h3>Personal, always</h3>
+              <p>Your people, traditions, tastes and priorities shape the experience from the very first conversation.</p>
+            </article>
+            <article class="value-card">
+              <span class="symbol">02</span>
+              <h3>Details with purpose</h3>
+              <p>We look beyond appearances to create thoughtful moments guests will remember long after the day.</p>
+            </article>
+            <article class="value-card">
+              <span class="symbol">03</span>
+              <h3>Calm behind the scenes</h3>
+              <p>Clear planning, careful coordination and trusted creative partners help the celebration feel effortless.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">The planning journey</p>
+            <h2>From first conversation to forever.</h2>
+            <p>A considered process gives your ideas room to grow while every important detail finds its place.</p>
+          </div>
+          <div class="process-grid">
+            <article class="process-step">
+              <span class="step">STEP 01</span>
+              <h3>We listen</h3>
+              <p>We learn about your story, priorities, guest experience and vision for the celebration.</p>
+            </article>
+            <article class="process-step">
+              <span class="step">STEP 02</span>
+              <h3>We imagine</h3>
+              <p>We develop the creative direction, explore venues and shape a considered planning roadmap.</p>
+            </article>
+            <article class="process-step">
+              <span class="step">STEP 03</span>
+              <h3>We bring it together</h3>
+              <p>We coordinate the moving parts, creative partners, schedules and meaningful details.</p>
+            </article>
+            <article class="process-step">
+              <span class="step">STEP 04</span>
+              <h3>You live it</h3>
+              <p>On the day, our focus is on a smooth experience that lets you be present with your people.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface">
+        <div class="container intro-grid">
+          <div class="intro-image-wrap">
+            <img class="intro-image" loading="lazy"
+              src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1100&q=85"
+              alt="Elegant floral wedding styling with soft romantic details">
+            <div class="image-caption">A celebration that could only be yours.</div>
+          </div>
+          <div class="intro-copy">
+            <p class="eyebrow">A note on our approach</p>
+            <h2>Luxury is in how it feels.</h2>
+            <p>
+              For us, luxury is not simply more. It is care, considered choices,
+              a welcome that feels genuine and a day where every element belongs.
+              It is the confidence of knowing the details have been thoughtfully handled.
+            </p>
+            <p>
+              We bring creativity and organization together so the experience feels
+              beautiful to look at—and even better to live.
+            </p>
+            <a class="text-link" href="#story" data-page="story">Meet EverAfter <span>→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container">
+          <p class="eyebrow">Your story, our starting point</p>
+          <h2>Let's make room for something unforgettable.</h2>
+          <p>Tell us a little about the celebration you imagine. Together, we can begin shaping what comes next.</p>
+          <a class="btn btn-light" href="#contact" data-page="contact">Request a consultation ↗</a>
+        </div>
+      </section>
+    </section>
+
+    <!-- PART 1 PAGE 02: OUR STORY -->
+    <section class="page-view" id="page-story" data-view="story" hidden>
+      <header class="page-hero" style="--page-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2200&q=85')">
+        <div class="page-hero-inner">
+          <p class="eyebrow">The heart behind the details</p>
+          <h1>Our Story</h1>
+          <p>Thoughtful planning, expressive design and celebrations that feel deeply personal.</p>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="container story-grid">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1100&q=85"
+            alt="Newly married couple sharing a quiet moment after their ceremony">
+          <div class="story-copy">
+            <p class="eyebrow">Why EverAfter</p>
+            <h2>Every great celebration begins with a story.</h2>
+            <p>
+              EverAfter Events was imagined around a simple belief: the most memorable
+              weddings are the ones that feel true to the people at their heart.
+            </p>
+            <p>
+              We bring together creative direction, considered logistics and a personal
+              approach to planning. We want the small details to feel intentional,
+              the larger moments to feel extraordinary and the journey to feel supported.
+            </p>
+            <p>
+              From intimate gatherings to multi-day destination celebrations, our focus
+              remains the same: a thoughtful experience, built around what matters to you.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface-alt">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="eyebrow">Our philosophy</p>
+            <h2>Beauty with meaning.</h2>
+            <p>We bring creative ambition and grounded planning together to make the experience feel personal at every scale.</p>
+          </div>
+          <div class="value-grid">
+            <article class="value-card">
+              <span class="symbol">I.</span>
+              <h3>Listen before designing</h3>
+              <p>We begin with conversations, not assumptions, so the celebration reflects your values and personality.</p>
+            </article>
+            <article class="value-card">
+              <span class="symbol">II.</span>
+              <h3>Make every detail count</h3>
+              <p>From a welcome note to the ceremony setting, each choice has a reason to be there.</p>
+            </article>
+            <article class="value-card">
+              <span class="symbol">III.</span>
+              <h3>Care for the whole journey</h3>
+              <p>We consider the experience of the couple, their families, their guests and the creative team.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container story-grid">
+          <div class="story-copy">
+            <p class="eyebrow">A founder's vision</p>
+            <h2>Creativity, supported by care.</h2>
+            <p>
+              Our studio philosophy is built around the idea that excellent design
+              deserves equally excellent planning. A beautiful concept becomes
+              meaningful when it works for the people experiencing it.
+            </p>
+            <p>
+              We value open communication, trusted collaboration, thoughtful schedules
+              and a calm approach to the unexpected. Those foundations allow creativity
+              to flourish without losing sight of the practical details.
+            </p>
+            <p><em>Every celebration has its own rhythm. Our job is to help it find its shape.</em></p>
+          </div>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1100&q=85"
+            alt="Wedding design team arranging flowers and preparing a celebration space">
+        </div>
+      </section>
+
+      <section class="section surface">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">The way we work</p>
+            <h2>A thoughtful journey, at every stage.</h2>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <span class="year">CHAPTER 01</span>
+              <h3>Discover</h3>
+              <p>We understand the people, place, feeling and priorities that will shape your celebration.</p>
+            </article>
+            <article class="timeline-item">
+              <span class="year">CHAPTER 02</span>
+              <h3>Imagine</h3>
+              <p>We explore creative concepts, venue possibilities, visual references and the overall guest journey.</p>
+            </article>
+            <article class="timeline-item">
+              <span class="year">CHAPTER 03</span>
+              <h3>Refine</h3>
+              <p>We bring the details together through planning, collaboration, schedules and considered decisions.</p>
+            </article>
+            <article class="timeline-item">
+              <span class="year">CHAPTER 04</span>
+              <h3>Celebrate</h3>
+              <p>We coordinate the experience so you can focus on the people and moments that matter most.</p>
+            </article>
+          </div>
+          <p style="font-size:11px;margin-top:25px">The studio timeline above describes our planning philosophy; it is not a historical record of company milestones.</p>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container">
+          <p class="eyebrow">A good beginning</p>
+          <h2>We would love to hear your story.</h2>
+          <p>Share the first ideas, the little details and the feeling you want your celebration to leave behind.</p>
+          <a class="btn btn-light" href="#contact" data-page="contact">Meet with our studio ↗</a>
+        </div>
+      </section>
+    </section>
+
+    <!-- PART 1 PAGE 03: WEDDING SERVICES -->
+    <section class="page-view" id="page-services" data-view="services" hidden>
+      <header class="page-hero" style="--page-image:url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=2200&q=85')">
+        <div class="page-hero-inner">
+          <p class="eyebrow">The art of bringing it together</p>
+          <h1>Wedding Services</h1>
+          <p>Personal planning and expressive design, thoughtfully tailored to your celebration.</p>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Ways to work together</p>
+            <h2>One vision. Thoughtfully supported.</h2>
+            <p>Choose the level of support that suits your plans. We can begin with the complete journey or focus on the elements where you need us most.</p>
+          </div>
+
+          <div class="service-detail-grid">
+            <article class="service-detail">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Outdoor wedding ceremony surrounded by greenery">
+              <div class="service-detail-copy">
+                <span class="number">SERVICE 01</span>
+                <h3>Full-Service Planning</h3>
+                <p>From early ideas and venue discovery to creative partners, schedules, logistics and the celebration itself.</p>
+                <a class="text-link service-inquiry" href="#contact" data-page="contact" data-service="Full-Service Wedding Planning">Enquire about planning <span>→</span></a>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" alt="Wedding couple celebrating at a destination location">
+              <div class="service-detail-copy">
+                <span class="number">SERVICE 02</span>
+                <h3>Destination Weddings</h3>
+                <p>Location discovery, guest journey planning, local partner coordination and the details of a celebration away from home.</p>
+                <a class="text-link service-inquiry" href="#contact" data-page="contact" data-service="Destination Wedding Planning">Plan a destination <span>→</span></a>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Intimate wedding dinner with soft floral styling">
+              <div class="service-detail-copy">
+                <span class="number">SERVICE 03</span>
+                <h3>Intimate Celebrations</h3>
+                <p>Smaller guest lists, meaningful rituals and beautifully considered experiences for the people closest to you.</p>
+                <a class="text-link service-inquiry" href="#contact" data-page="contact" data-service="Intimate and Micro Weddings">Explore intimate weddings <span>→</span></a>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=800&q=80" alt="Elegant wedding flowers and decorative details">
+              <div class="service-detail-copy">
+                <span class="number">SERVICE 04</span>
+                <h3>Creative Wedding Design</h3>
+                <p>A distinctive visual direction that brings together colour, texture, flowers, lighting, stationery and styling.</p>
+                <a class="text-link service-inquiry" href="#contact" data-page="contact" data-service="Creative Wedding Design">Discuss your design <span>→</span></a>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=800&q=80" alt="Garden wedding setting ready for guests">
+              <div class="service-detail-copy">
+                <span class="number">SERVICE 05</span>
+                <h3>Wedding-Day Coordination</h3>
+                <p>Timelines, supplier communication, ceremony flow and on-the-day coordination to help the plan come together.</p>
+                <a class="text-link service-inquiry" href="#contact" data-page="contact" data-service="Wedding-Day Coordination">Coordinate my day <span>→</span></a>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Reception table styled with candles and elegant flowers">
+              <div class="service-detail-copy">
+                <span class="number">SERVICE 06</span>
+                <h3>Reception & Tablescapes</h3>
+                <p>Table design, floral compositions, guest flow, ambience and the small touches that make a reception feel complete.</p>
+                <a class="text-link service-inquiry" href="#contact" data-page="contact" data-service="Reception and Tablescape Design">Style your reception <span>→</span></a>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=800&q=80" alt="Wedding ceremony floral details in a romantic setting">
+              <div class="service-detail-copy">
+                <span class="number">SERVICE 07</span>
+                <h3>Engagement & Welcome Events</h3>
+                <p>Welcome dinners, engagement celebrations, rehearsal gatherings and other moments around the main day.</p>
+                <a class="text-link service-inquiry" href="#contact" data-page="contact" data-service="Engagement and Welcome Events">Plan another occasion <span>→</span></a>
+              </div>
+            </article>
+
+            <article class="service-detail">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=800&q=80" alt="Open-air event venue surrounded by natural scenery">
+              <div class="service-detail-copy">
+                <span class="number">SERVICE 08</span>
+                <h3>Venue & Vendor Guidance</h3>
+                <p>Help exploring suitable venues and coordinating the creative professionals who bring your plans to life.</p>
+                <a class="text-link service-inquiry" href="#contact" data-page="contact" data-service="Venue and Vendor Guidance">Find your team <span>→</span></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface-alt">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="eyebrow">How we support you</p>
+            <h2>Considered from beginning to end.</h2>
+            <p>Our work connects creative choices with the practical decisions that make a celebration flow.</p>
+          </div>
+          <div class="value-grid">
+            <article class="value-card">
+              <span class="symbol">A</span>
+              <h3>Creative direction</h3>
+              <p>We help establish a coherent look, feel and story across the ceremony, reception and surrounding events.</p>
+            </article>
+            <article class="value-card">
+              <span class="symbol">B</span>
+              <h3>Planning & logistics</h3>
+              <p>We coordinate priorities, schedules, supplier conversations and the many details behind the scenes.</p>
+            </article>
+            <article class="value-card">
+              <span class="symbol">C</span>
+              <h3>Guest experience</h3>
+              <p>We consider arrivals, comfort, event flow and thoughtful touches that help guests feel welcomed.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container">
+          <p class="eyebrow">Let's find your fit</p>
+          <h2>The right support changes everything.</h2>
+          <p>Tell us where you are in the planning process, and we can explore the kind of support that makes sense for you.</p>
+          <a class="btn btn-light" href="#contact" data-page="contact">Tell us about your wedding ↗</a>
+        </div>
+      </section>
+    </section>
+
+    <!-- PART 2 CONTINUES HERE -->
+
+    <!-- PART 2 PAGE 04: OUR PORTFOLIO -->
+    <section class="page-view" id="page-portfolio" data-view="portfolio" hidden>
+      <header class="page-hero" style="--page-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2200&q=85')">
+        <div class="page-hero-inner">
+          <p class="eyebrow">A collection of celebrations</p>
+          <h1>Our Portfolio</h1>
+          <p>Different places, different personalities, one thoughtful approach to creating meaningful celebrations.</p>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">The portfolio edit</p>
+            <h2>Stories told through celebration.</h2>
+            <p>Explore visual inspiration from romantic gardens, grand receptions, intimate gatherings and destination settings. The projects shown are illustrative creative concepts.</p>
+          </div>
+
+          <div class="filter-bar" role="group" aria-label="Filter portfolio by style">
+            <button class="btn filter-btn active" type="button" data-filter="all" aria-pressed="true">All stories</button>
+            <button class="btn btn-outline filter-btn" type="button" data-filter="garden" aria-pressed="false">Garden</button>
+            <button class="btn btn-outline filter-btn" type="button" data-filter="classic" aria-pressed="false">Classic</button>
+            <button class="btn btn-outline filter-btn" type="button" data-filter="destination" aria-pressed="false">Destination</button>
+            <button class="btn btn-outline filter-btn" type="button" data-filter="intimate" aria-pressed="false">Intimate</button>
+            <button class="btn btn-outline filter-btn" type="button" data-filter="modern" aria-pressed="false">Modern</button>
+          </div>
+
+          <div class="portfolio-grid">
+            <article class="portfolio-card" data-category="garden" data-project="The Garden Reverie" data-description="A romantic outdoor concept featuring layered greenery, soft florals, warm light and an open-air ceremony." data-location="Garden celebration concept">
+              <button class="portfolio-image" type="button" aria-label="View The Garden Reverie project">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85" alt="Garden wedding ceremony with romantic floral styling">
+                <span class="portfolio-overlay"><span>View story ↗</span></span>
+              </button>
+              <div class="portfolio-meta"><span>GARDEN WEDDING</span><span>01</span></div>
+              <h3>The Garden Reverie</h3>
+              <p>Botanical romance, softly imagined.</p>
+            </article>
+
+            <article class="portfolio-card" data-category="classic" data-project="The Grand Affair" data-description="A timeless reception direction inspired by graceful table settings, candlelight and classic celebration details." data-location="Classic reception concept">
+              <button class="portfolio-image" type="button" aria-label="View The Grand Affair project">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1000&q=85" alt="Classic reception tablescape with refined wedding details">
+                <span class="portfolio-overlay"><span>View story ↗</span></span>
+              </button>
+              <div class="portfolio-meta"><span>CLASSIC ELEGANCE</span><span>02</span></div>
+              <h3>The Grand Affair</h3>
+              <p>Timeless details with a modern sensibility.</p>
+            </article>
+
+            <article class="portfolio-card" data-category="destination" data-project="Coastal Vows" data-description="An airy destination celebration concept with natural textures, ocean-inspired tones and a relaxed guest experience." data-location="Coastal wedding concept">
+              <button class="portfolio-image" type="button" aria-label="View Coastal Vows project">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1000&q=85" alt="Couple celebrating a wedding in an outdoor destination">
+                <span class="portfolio-overlay"><span>View story ↗</span></span>
+              </button>
+              <div class="portfolio-meta"><span>DESTINATION</span><span>03</span></div>
+              <h3>Coastal Vows</h3>
+              <p>Open skies and an effortless atmosphere.</p>
+            </article>
+
+            <article class="portfolio-card" data-category="intimate" data-project="An Evening for Two" data-description="A small-scale celebration concept shaped around personal touches, an intimate table and a candlelit setting." data-location="Intimate celebration concept">
+              <button class="portfolio-image" type="button" aria-label="View An Evening for Two project">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1000&q=85" alt="Intimate wedding reception with elegant candlelit styling">
+                <span class="portfolio-overlay"><span>View story ↗</span></span>
+              </button>
+              <div class="portfolio-meta"><span>INTIMATE</span><span>04</span></div>
+              <h3>An Evening for Two</h3>
+              <p>Personal, intimate and full of meaning.</p>
+            </article>
+
+            <article class="portfolio-card" data-category="modern" data-project="Quietly Contemporary" data-description="A modern editorial concept pairing restrained styling, considered materials and sculptural floral details." data-location="Modern wedding concept">
+              <button class="portfolio-image" type="button" aria-label="View Quietly Contemporary project">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1000&q=85" alt="Contemporary open-air celebration venue">
+                <span class="portfolio-overlay"><span>View story ↗</span></span>
+              </button>
+              <div class="portfolio-meta"><span>MODERN DESIGN</span><span>05</span></div>
+              <h3>Quietly Contemporary</h3>
+              <p>Understated details, confident simplicity.</p>
+            </article>
+
+            <article class="portfolio-card" data-category="garden" data-project="Floral Poetry" data-description="A floral-first design study using garden textures, romantic composition and a palette inspired by nature." data-location="Floral design concept">
+              <button class="portfolio-image" type="button" aria-label="View Floral Poetry project">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1000&q=85" alt="Romantic wedding flowers in a soft natural palette">
+                <span class="portfolio-overlay"><span>View story ↗</span></span>
+              </button>
+              <div class="portfolio-meta"><span>FLORAL DESIGN</span><span>06</span></div>
+              <h3>Floral Poetry</h3>
+              <p>Flowers as an expression of feeling.</p>
+            </article>
+
+            <article class="portfolio-card" data-category="classic" data-project="Golden Hour Vows" data-description="A warm-toned ceremony concept inspired by sunset light, graceful silhouettes and a sense of timeless occasion." data-location="Golden hour concept">
+              <button class="portfolio-image" type="button" aria-label="View Golden Hour Vows project">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1000&q=85" alt="Newlyweds sharing a romantic outdoor moment">
+                <span class="portfolio-overlay"><span>View story ↗</span></span>
+              </button>
+              <div class="portfolio-meta"><span>ROMANTIC CLASSIC</span><span>07</span></div>
+              <h3>Golden Hour Vows</h3>
+              <p>Soft light and a beautiful sense of occasion.</p>
+            </article>
+
+            <article class="portfolio-card" data-category="destination" data-project="Away Together" data-description="A multi-day destination celebration concept designed around welcoming guests and creating shared memories." data-location="Destination experience concept">
+              <button class="portfolio-image" type="button" aria-label="View Away Together project">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85" alt="Elegant wedding setting with carefully arranged celebration details">
+                <span class="portfolio-overlay"><span>View story ↗</span></span>
+              </button>
+              <div class="portfolio-meta"><span>DESTINATION</span><span>08</span></div>
+              <h3>Away Together</h3>
+              <p>A celebration that becomes a shared journey.</p>
+            </article>
+
+            <article class="portfolio-card" data-category="intimate" data-project="The Candlelit Table" data-description="An intimate dinner concept built around warm candlelight, delicate florals and personal details." data-location="Candlelit dinner concept">
+              <button class="portfolio-image" type="button" aria-label="View The Candlelit Table project">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=1000&q=85" alt="Beautifully styled dinner table with a warm, intimate atmosphere">
+                <span class="portfolio-overlay"><span>View story ↗</span></span>
+              </button>
+              <div class="portfolio-meta"><span>INTIMATE DINNER</span><span>09</span></div>
+              <h3>The Candlelit Table</h3>
+              <p>Small details, lasting impressions.</p>
+            </article>
+          </div>
+          <p class="demo-note">Portfolio imagery is used as visual inspiration. Project names and descriptions are illustrative concepts, not claims of completed client work.</p>
+        </div>
+      </section>
+
+      <section class="section surface-alt">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="eyebrow">The details matter</p>
+            <h2>Beauty lives in the in-between.</h2>
+            <p>From the first invitation to the final table detail, the smaller moments help give a celebration its character.</p>
+          </div>
+          <div class="detail-gallery">
+            <button type="button" class="gallery-tile" data-image="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1600&q=90" data-alt="Elegant wedding table styling" aria-label="Enlarge elegant table styling">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=700&q=80" alt="Elegant wedding table styling">
+            </button>
+            <button type="button" class="gallery-tile" data-image="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1600&q=90" data-alt="Wedding floral composition" aria-label="Enlarge wedding flowers">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=700&q=80" alt="Wedding floral composition">
+            </button>
+            <button type="button" class="gallery-tile" data-image="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1600&q=90" data-alt="Romantic reception ambience" aria-label="Enlarge reception ambience">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=700&q=80" alt="Romantic reception ambience">
+            </button>
+            <button type="button" class="gallery-tile" data-image="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=90" data-alt="Wedding celebration setting" aria-label="Enlarge wedding celebration">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=80" alt="Wedding celebration setting">
+            </button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- PART 2 PAGE 05: DESTINATIONS & VENUES -->
+    <section class="page-view" id="page-destinations" data-view="destinations" hidden>
+      <header class="page-hero" style="--page-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2200&q=85')">
+        <div class="page-hero-inner">
+          <p class="eyebrow">Somewhere unforgettable</p>
+          <h1>Destinations & Venues</h1>
+          <p>Find a setting that speaks to you, then create a celebration that belongs there.</p>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Where your story unfolds</p>
+            <h2>Beautiful places. Personal celebrations.</h2>
+            <p>Explore destination styles and venue inspirations. Actual availability, local requirements, travel costs and venue pricing must be confirmed with the relevant providers.</p>
+          </div>
+
+          <div class="filter-bar" role="group" aria-label="Filter destination styles">
+            <button class="btn filter-btn destination-filter active" type="button" data-destination="all" aria-pressed="true">All destinations</button>
+            <button class="btn btn-outline filter-btn destination-filter" type="button" data-destination="europe" aria-pressed="false">European villas</button>
+            <button class="btn btn-outline filter-btn destination-filter" type="button" data-destination="coast" aria-pressed="false">Coastal</button>
+            <button class="btn btn-outline filter-btn destination-filter" type="button" data-destination="estate" aria-pressed="false">Estates & gardens</button>
+            <button class="btn btn-outline filter-btn destination-filter" type="button" data-destination="mountain" aria-pressed="false">Mountains</button>
+          </div>
+
+          <div class="destination-grid">
+            <article class="destination-card" data-destination-category="europe" data-venue="Italian Villa Escape" data-style="European countryside villa" data-details="Imagine a multi-day celebration with garden dining, a relaxed welcome evening and a ceremony framed by the surrounding landscape. Venue access, travel, permits and accommodation require separate confirmation.">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=85" alt="Italian countryside landscape and traditional village architecture">
+              <div class="destination-copy">
+                <span class="destination-tag">EUROPEAN COUNTRYSIDE</span>
+                <h3>Italian Villa Escape</h3>
+                <p>Sun-warmed stone, garden dinners and the pleasure of celebrating together over several days.</p>
+                <button class="text-link venue-detail-btn" type="button">Explore this style <span>→</span></button>
+              </div>
+            </article>
+
+            <article class="destination-card" data-destination-category="coast" data-venue="Coastal Celebration" data-style="Oceanfront wedding setting" data-details="An airy coastal concept with natural textures, a ceremony timed around the light and a welcoming reception. Weather plans, local permissions and actual venue facilities must be verified.">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1000&q=85" alt="Tropical coast with turquoise water and sandy beach">
+              <div class="destination-copy">
+                <span class="destination-tag">COASTAL RETREAT</span>
+                <h3>Coastal Celebration</h3>
+                <p>Ocean air, relaxed elegance and an open horizon for a celebration with a sense of escape.</p>
+                <button class="text-link venue-detail-btn" type="button">Explore this style <span>→</span></button>
+              </div>
+            </article>
+
+            <article class="destination-card" data-destination-category="estate" data-venue="Garden Estate" data-style="Private garden and estate" data-details="A garden estate concept featuring natural greenery, outdoor dining and a gracious ceremony setting. Capacity, accessibility, rain cover and event restrictions must be confirmed directly.">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1000&q=85" alt="Garden venue surrounded by lush green landscape">
+              <div class="destination-copy">
+                <span class="destination-tag">GARDEN ESTATE</span>
+                <h3>Garden Estate</h3>
+                <p>Green surroundings, intimate pathways and the quiet beauty of an outdoor celebration.</p>
+                <button class="text-link venue-detail-btn" type="button">Explore this style <span>→</span></button>
+              </div>
+            </article>
+
+            <article class="destination-card" data-destination-category="mountain" data-venue="Mountain Hideaway" data-style="Mountain destination retreat" data-details="A mountain retreat concept for couples drawn to dramatic views, fresh air and a gathering that feels close to nature. Seasonal access, guest transport and weather contingencies need planning.">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85" alt="Dramatic mountain range beneath a clear sky">
+              <div class="destination-copy">
+                <span class="destination-tag">MOUNTAIN RETREAT</span>
+                <h3>Mountain Hideaway</h3>
+                <p>Natural grandeur, a slower pace and an atmosphere that lets the landscape take the lead.</p>
+                <button class="text-link venue-detail-btn" type="button">Explore this style <span>→</span></button>
+              </div>
+            </article>
+
+            <article class="destination-card" data-destination-category="europe" data-venue="Historic Romance" data-style="Historic architecture and formal gardens" data-details="A heritage-inspired celebration concept balancing architectural character with contemporary comfort. Historic site permissions, noise limits, access and supplier rules vary by venue.">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1000&q=85" alt="Elegant historic architecture with timeless design details">
+              <div class="destination-copy">
+                <span class="destination-tag">HERITAGE INSPIRED</span>
+                <h3>Historic Romance</h3>
+                <p>Architectural character, graceful proportions and a timeless sense of occasion.</p>
+                <button class="text-link venue-detail-btn" type="button">Explore this style <span>→</span></button>
+              </div>
+            </article>
+
+            <article class="destination-card" data-destination-category="coast" data-venue="Resort Weekend" data-style="Luxury resort and guest experience" data-details="A resort wedding concept with guest accommodation, gathering spaces and a planned weekend itinerary. Room blocks, minimum spends, catering and rates depend on the actual property and dates.">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1000&q=85" alt="Luxury resort pool and tropical landscaping">
+              <div class="destination-copy">
+                <span class="destination-tag">RESORT EXPERIENCE</span>
+                <h3>Resort Weekend</h3>
+                <p>A welcoming destination experience where the gathering extends beyond a single day.</p>
+                <button class="text-link venue-detail-btn" type="button">Explore this style <span>→</span></button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface-alt">
+        <div class="container intro-grid">
+          <div class="intro-copy">
+            <p class="eyebrow">Beyond the ceremony</p>
+            <h2>Make the journey part of the celebration.</h2>
+            <p>Destination planning involves more than a beautiful venue. We help map the guest journey, coordinate event timings and consider the details that make travel feel easier.</p>
+            <p>Depending on your needs, planning may include accommodation research, welcome events, transport coordination and practical guest information.</p>
+            <a class="btn" href="#contact" data-page="contact" data-service="Destination Wedding Planning">Discuss a destination wedding ↗</a>
+          </div>
+          <div class="intro-image-wrap">
+            <img class="intro-image" loading="lazy" src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1100&q=85" alt="Mediterranean coastal destination with scenic buildings and water">
+            <div class="image-caption">A place to gather. A story to share.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Venue comparison guide</p>
+            <h2>Find the right kind of setting.</h2>
+            <p>This illustrative comparison helps you think about atmosphere and planning needs. It is not a list of verified venues or supplier quotations.</p>
+          </div>
+          <div class="table-scroll">
+            <table class="comparison-table">
+              <thead>
+                <tr><th>Setting</th><th>Atmosphere</th><th>Planning considerations</th><th>Explore</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Villa</td><td>Intimate, scenic, leisurely</td><td>Accommodation, access, supplier logistics</td><td><button class="text-link comparison-select" type="button" data-style="European countryside villa">Select style →</button></td></tr>
+                <tr><td>Coastal</td><td>Airy, relaxed, romantic</td><td>Weather, permits, wind and sound</td><td><button class="text-link comparison-select" type="button" data-style="Oceanfront wedding setting">Select style →</button></td></tr>
+                <tr><td>Garden estate</td><td>Natural, graceful, timeless</td><td>Rain plan, terrain, lighting</td><td><button class="text-link comparison-select" type="button" data-style="Private garden and estate">Select style →</button></td></tr>
+                <tr><td>Mountain retreat</td><td>Scenic, peaceful, dramatic</td><td>Seasonality, transport, guest comfort</td><td><button class="text-link comparison-select" type="button" data-style="Mountain destination retreat">Select style →</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- PART 2 PAGE 06: SIGNATURE EXPERIENCES -->
+    <section class="page-view" id="page-experiences" data-view="experiences" hidden>
+      <header class="page-hero" style="--page-image:url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=2200&q=85')">
+        <div class="page-hero-inner">
+          <p class="eyebrow">The details that make it yours</p>
+          <h1>Signature Experiences</h1>
+          <p>Beautifully layered details, expressive design and moments that bring people together.</p>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">The design studio</p>
+            <h2>Set the feeling. Shape the details.</h2>
+            <p>Explore creative directions for your ceremony, reception and surrounding celebrations. Each style can be adapted to your setting, priorities and budget.</p>
+          </div>
+
+          <div class="experience-grid">
+            <article class="experience-card">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=900&q=85" alt="Romantic floral arrangement for a wedding">
+              <div class="experience-copy"><span>01 / FLORALS</span><h3>Floral Poetry</h3><p>Seasonal flowers, expressive shapes and arrangements that feel at home in the setting.</p><button class="text-link inspiration-select" type="button" data-inspiration="Floral Poetry">Add to inspiration <span>+</span></button></div>
+            </article>
+            <article class="experience-card">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85" alt="Elegant candlelit reception atmosphere">
+              <div class="experience-copy"><span>02 / AMBIENCE</span><h3>Light & Atmosphere</h3><p>Warm candlelight, considered lighting layers and an inviting mood from arrival to evening.</p><button class="text-link inspiration-select" type="button" data-inspiration="Light and Atmosphere">Add to inspiration <span>+</span></button></div>
+            </article>
+            <article class="experience-card">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=85" alt="Refined table styling and wedding reception design">
+              <div class="experience-copy"><span>03 / TABLESCAPES</span><h3>The Art of the Table</h3><p>Layered linens, glassware, stationery and details that bring the reception together.</p><button class="text-link inspiration-select" type="button" data-inspiration="The Art of the Table">Add to inspiration <span>+</span></button></div>
+            </article>
+            <article class="experience-card">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=900&q=85" alt="Delicate wedding details in a romantic palette">
+              <div class="experience-copy"><span>04 / STATIONERY</span><h3>Words & Paper</h3><p>Invitations, menus and paper details that introduce the character of your celebration.</p><button class="text-link inspiration-select" type="button" data-inspiration="Words and Paper">Add to inspiration <span>+</span></button></div>
+            </article>
+            <article class="experience-card">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=85" alt="Outdoor venue with elegant event styling">
+              <div class="experience-copy"><span>05 / CEREMONY</span><h3>The Ceremony Setting</h3><p>A thoughtful focal point, a natural flow and an atmosphere that keeps the moment at the centre.</p><button class="text-link inspiration-select" type="button" data-inspiration="The Ceremony Setting">Add to inspiration <span>+</span></button></div>
+            </article>
+            <article class="experience-card">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=900&q=85" alt="Creative team preparing a wedding experience">
+              <div class="experience-copy"><span>06 / GUESTS</span><h3>Guest Experience</h3><p>Welcome moments, thoughtful information and details that help everyone feel included.</p><button class="text-link inspiration-select" type="button" data-inspiration="Guest Experience">Add to inspiration <span>+</span></button></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface-alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Create your moodboard</p>
+            <h2>What should your celebration feel like?</h2>
+            <p>Select a visual direction to start shaping your inspiration. Your selection is a local, in-page demo and is not saved to an account.</p>
+          </div>
+
+          <div class="moodboard">
+            <button class="mood-option active" type="button" data-mood="Romantic Garden" data-colors="#d8c7b3,#a6ad8b,#f4e8dc" aria-pressed="true">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Romantic garden wedding inspiration">
+              <span>Romantic Garden</span>
+            </button>
+            <button class="mood-option" type="button" data-mood="Modern Minimal" data-colors="#d6d0c7,#7c7770,#f8f5ef" aria-pressed="false">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=700&q=80" alt="Minimal contemporary celebration inspiration">
+              <span>Modern Minimal</span>
+            </button>
+            <button class="mood-option" type="button" data-mood="Coastal Romance" data-colors="#c7d5d4,#e6d5bf,#faf5ed" aria-pressed="false">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=700&q=80" alt="Coastal wedding inspiration">
+              <span>Coastal Romance</span>
+            </button>
+            <button class="mood-option" type="button" data-mood="Timeless Elegance" data-colors="#b59a72,#e4d9c7,#4a4239" aria-pressed="false">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=700&q=80" alt="Timeless elegant wedding tablescape inspiration">
+              <span>Timeless Elegance</span>
+            </button>
+          </div>
+
+          <div class="mood-preview" aria-live="polite">
+            <div><span class="eyebrow">Your selected direction</span><h3 id="moodTitle">Romantic Garden</h3><p id="moodDescription">Soft textures, natural greenery and delicate floral details.</p></div>
+            <div class="mood-swatches" id="moodSwatches" aria-label="Selected colour palette">
+              <span style="background:#d8c7b3"></span><span style="background:#a6ad8b"></span><span style="background:#f4e8dc"></span>
+            </div>
+            <button class="btn" id="useMood" type="button">Use this inspiration ↗</button>
+          </div>
+
+          <div class="inspiration-list-wrap">
+            <h3>Your inspiration list</h3>
+            <p id="inspirationEmpty">You have not added any design ideas yet. Choose an experience above to begin.</p>
+            <ul id="inspirationList" aria-live="polite"></ul>
+            <div class="inspiration-actions">
+              <button class="btn btn-outline" id="clearInspiration" type="button">Clear list</button>
+              <button class="btn" id="sendInspiration" type="button">Discuss my ideas ↗</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container">
+          <p class="eyebrow">Bring the feeling to life</p>
+          <h2>Good design starts with a conversation.</h2>
+          <p>Tell us what you love, what you want to avoid and how you hope the celebration will feel.</p>
+          <a class="btn btn-light" href="#contact" data-page="contact">Share your ideas ↗</a>
+        </div>
+      </section>
+    </section>
+
+    <!-- PART 2 PAGE 07: PACKAGES & PLANNING -->
+    <section class="page-view" id="page-packages" data-view="packages" hidden>
+      <header class="page-hero" style="--page-image:url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=2200&q=85')">
+        <div class="page-hero-inner">
+          <p class="eyebrow">A plan shaped around you</p>
+          <h1>Packages & Planning</h1>
+          <p>Flexible planning approaches for celebrations with different needs, scales and ambitions.</p>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="eyebrow">Ways to begin</p>
+            <h2>The right level of support.</h2>
+            <p>The package descriptions below are illustrative service concepts. They are not confirmed offers, fixed quotes or a guarantee of availability.</p>
+          </div>
+
+          <div class="package-grid">
+            <article class="package-card">
+              <span class="package-label">FOR THE FINAL DETAILS</span>
+              <h3>Essential Coordination</h3>
+              <p class="package-intro">For couples who have made the main decisions and want help bringing the final plan together.</p>
+              <ul><li>Planning handover and review</li><li>Event timeline development</li><li>Supplier communication support</li><li>Wedding-day coordination scope</li></ul>
+              <button class="btn btn-outline package-select" type="button" data-package="Essential Coordination">Enquire about this <span>→</span></button>
+            </article>
+
+            <article class="package-card featured-package">
+              <span class="package-label">THE SIGNATURE APPROACH</span>
+              <h3>Signature Wedding Planning</h3>
+              <p class="package-intro">A connected planning experience from creative direction through coordination of the celebration.</p>
+              <ul><li>Planning roadmap and priorities</li><li>Venue and supplier guidance</li><li>Creative direction collaboration</li><li>Timeline and logistics support</li><li>Event-day coordination scope</li></ul>
+              <button class="btn package-select" type="button" data-package="Signature Wedding Planning">Explore this package <span>→</span></button>
+            </article>
+
+            <article class="package-card">
+              <span class="package-label">FOR A GRAND OCCASION</span>
+              <h3>Grand Celebration</h3>
+              <p class="package-intro">For larger or multi-event celebrations that benefit from broader creative and logistical planning.</p>
+              <ul><li>Multi-event planning overview</li><li>Guest experience coordination</li><li>Design and production planning</li><li>Supplier schedule coordination</li><li>Event flow and logistics support</li></ul>
+              <button class="btn btn-outline package-select" type="button" data-package="Grand Celebration Experience">Enquire about this <span>→</span></button>
+            </article>
+
+            <article class="package-card">
+              <span class="package-label">CELEBRATE AWAY</span>
+              <h3>Destination Planning</h3>
+              <p class="package-intro">A planning framework for celebrations involving travel, accommodation and multiple guest touchpoints.</p>
+              <ul><li>Destination and venue research</li><li>Guest journey planning</li><li>Travel logistics coordination</li><li>Local supplier discussions</li><li>Multi-day schedule framework</li></ul>
+              <button class="btn btn-outline package-select" type="button" data-package="Destination Wedding Planning">Explore destination support <span>→</span></button>
+            </article>
+
+            <article class="package-card">
+              <span class="package-label">DESIGNED AROUND YOU</span>
+              <h3>Bespoke Planning</h3>
+              <p class="package-intro">A tailored approach for celebrations with distinctive creative ambitions or individual requirements.</p>
+              <ul><li>Needs-led scope discussion</li><li>Personalised creative brief</li><li>Custom planning structure</li><li>Agreed support priorities</li></ul>
+              <button class="btn btn-outline package-select" type="button" data-package="Bespoke Planning Services">Discuss a bespoke plan <span>→</span></button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface-alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Plan with perspective</p>
+            <h2>A simple budget estimator.</h2>
+            <p>Adjust the example allocations below to explore how different costs contribute to a sample wedding budget. These values are illustrative only—not supplier quotes or actual market prices.</p>
+          </div>
+
+          <div class="budget-layout">
+            <div class="budget-controls">
+              <div class="form-field">
+                <label for="budgetGuests">Estimated guest count</label>
+                <div class="range-row"><input id="budgetGuests" type="range" min="10" max="500" step="10" value="100"><output id="budgetGuestsValue" for="budgetGuests">100 guests</output></div>
+              </div>
+              <div class="form-field">
+                <label for="venueBudget">Venue allocation (₹)</label>
+                <input id="venueBudget" type="number" min="0" max="100000000" step="5000" value="300000">
+              </div>
+              <div class="form-field">
+                <label for="cateringBudget">Catering allocation (₹)</label>
+                <input id="cateringBudget" type="number" min="0" max="100000000" step="5000" value="250000">
+              </div>
+              <div class="form-field">
+                <label for="decorBudget">Décor & flowers (₹)</label>
+                <input id="decorBudget" type="number" min="0" max="100000000" step="5000" value="150000">
+              </div>
+              <div class="form-field">
+                <label for="photoBudget">Photography (₹)</label>
+                <input id="photoBudget" type="number" min="0" max="100000000" step="5000" value="80000">
+              </div>
+              <div class="form-field">
+                <label for="entertainmentBudget">Entertainment (₹)</label>
+                <input id="entertainmentBudget" type="number" min="0" max="100000000" step="5000" value="50000">
+              </div>
+              <div class="form-field">
+                <label for="otherBudget">Other expenses (₹)</label>
+                <input id="otherBudget" type="number" min="0" max="100000000" step="5000" value="70000">
+              </div>
+              <button class="btn btn-outline" type="button" id="resetBudget">Reset example</button>
+            </div>
+
+            <div class="budget-summary">
+              <span class="eyebrow">Your sample estimate</span>
+              <p class="budget-total-label">Illustrative total allocation</p>
+              <output id="budgetTotal" class="budget-total" aria-live="polite">₹9,00,000</output>
+              <p id="budgetPerGuest" class="budget-per-guest">₹9,000 per guest (illustrative)</p>
+              <div class="budget-breakdown" id="budgetBreakdown">
+                <div class="budget-line"><span>Venue</span><span>₹3,00,000</span></div>
+                <div class="budget-line"><span>Catering</span><span>₹2,50,000</span></div>
+                <div class="budget-line"><span>Décor & flowers</span><span>₹1,50,000</span></div>
+                <div class="budget-line"><span>Photography</span><span>₹80,000</span></div>
+                <div class="budget-line"><span>Entertainment</span><span>₹50,000</span></div>
+                <div class="budget-line"><span>Other expenses</span><span>₹70,000</span></div>
+              </div>
+              <p class="demo-note">Frontend demo only. This calculator does not include every possible cost, taxes, travel, supplier terms or contingency unless you add them under other expenses. It does not create a quotation or store your budget.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Planning at a glance</p>
+            <h2>A flexible timeline.</h2>
+            <p>Every celebration is different. The sequence below is a starting point to discuss, not a fixed schedule for every wedding.</p>
+          </div>
+          <div class="process-grid">
+            <article class="process-step"><span class="step">EARLY PLANNING</span><h3>Define the vision</h3><p>Discuss priorities, budget parameters, guest count and the kind of experience you want.</p></article>
+            <article class="process-step"><span class="step">BUILD THE PLAN</span><h3>Make key decisions</h3><p>Explore venues, suppliers, creative direction and the broad event structure.</p></article>
+            <article class="process-step"><span class="step">REFINE DETAILS</span><h3>Connect the pieces</h3><p>Confirm the working timeline, guest information, design details and event logistics.</p></article>
+            <article class="process-step"><span class="step">CELEBRATION</span><h3>Bring it to life</h3><p>Coordinate the agreed plan and focus on a thoughtful guest and couple experience.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface">
+        <div class="container">
+          <div class="section-heading centered">
+            <p class="eyebrow">A few helpful answers</p>
+            <h2>Planning questions, answered.</h2>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item"><summary>When should we begin planning?</summary><p>Timing depends on the destination, venue, guest count and scope. Starting early can give you more flexibility, but a realistic plan can also be built around your actual timeframe.</p></details>
+            <details class="faq-item"><summary>Can you work with our existing vendors?</summary><p>We can discuss how your preferred vendors fit into the planning scope, schedule and communication process. Specific arrangements depend on availability and agreed responsibilities.</p></details>
+            <details class="faq-item"><summary>Do you plan destination weddings?</summary><p>Destination planning is one of the service concepts offered here. Actual locations, local partnerships, travel arrangements and availability need to be confirmed during a consultation.</p></details>
+            <details class="faq-item"><summary>Are the packages fixed-price?</summary><p>No. Package names and inclusions on this demo website are illustrative. Any real proposal would need an agreed scope, location, date and service requirements.</p></details>
+            <details class="faq-item"><summary>Can we request a custom planning service?</summary><p>Yes, you can use the inquiry form to describe the support you have in mind. This demo will show a local confirmation message but does not send a real inquiry.</p></details>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- PART 3 CONTINUES HERE -->
+
+    <!-- PART 3 STYLES: REMAINING COMPONENTS -->
+    <style>
+      .page-view[hidden] { display: none !important; }
+      .page-view:not([hidden]) { animation: page-enter .35s ease both; }
+      @keyframes page-enter { from { opacity: .65; } to { opacity: 1; } }
+
+      .filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 38px;
+      }
+      .filter-btn { min-height: 42px; padding: 10px 17px; }
+      .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+      .portfolio-grid, .destination-grid, .experience-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 35px 22px;
+      }
+      .portfolio-card, .destination-card, .experience-card { min-width: 0; }
+      .portfolio-image {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        background: var(--surface-alt);
+        cursor: zoom-in;
+        text-align: left;
+      }
+      .portfolio-image img { height: 340px; transition: transform .65s ease; }
+      .portfolio-image:hover img { transform: scale(1.05); }
+      .portfolio-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding: 20px;
+        background: linear-gradient(transparent 50%, rgba(0,0,0,.48));
+        color: #fff;
+        opacity: 0;
+        transition: opacity .3s ease;
+      }
+      .portfolio-image:hover .portfolio-overlay,
+      .portfolio-image:focus-visible .portfolio-overlay { opacity: 1; }
+      .portfolio-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 19px;
+        color: var(--accent-dark);
+        font-size: 9px;
+        letter-spacing: .15em;
+      }
+      .portfolio-card h3 { margin: 9px 0; font-size: 27px; }
+      .portfolio-card p { margin-bottom: 0; font-size: 13px; }
+      .portfolio-card.is-filtered, .destination-card.is-filtered { display: none; }
+
+      .detail-gallery {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .gallery-tile {
+        display: block;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        background: var(--surface-alt);
+        cursor: zoom-in;
+      }
+      .gallery-tile img { height: 270px; transition: transform .4s ease; }
+      .gallery-tile:hover img { transform: scale(1.06); }
+
+      .destination-card {
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: var(--surface);
+      }
+      .destination-card > img { height: 290px; transition: transform .55s ease; }
+      .destination-card:hover > img { transform: scale(1.025); }
+      .destination-copy { padding: 24px; }
+      .destination-tag, .experience-copy > span {
+        color: var(--accent-dark);
+        font-size: 9px;
+        letter-spacing: .16em;
+      }
+      .destination-copy h3 { margin: 12px 0; }
+      .destination-copy p { min-height: 70px; font-size: 13px; }
+      .destination-copy button { background: none; }
+
+      .comparison-table { width: 100%; border-collapse: collapse; background: var(--surface); }
+      .table-scroll { overflow-x: auto; border: 1px solid var(--border); }
+      .comparison-table th, .comparison-table td {
+        padding: 18px 16px;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+        vertical-align: top;
+        font-size: 12px;
+      }
+      .comparison-table th { background: var(--surface-alt); color: var(--text); font-size: 10px; letter-spacing: .09em; text-transform: uppercase; }
+      .comparison-table td:first-child { font-weight: 700; }
+
+      .experience-card { border: 1px solid var(--border); background: var(--surface); }
+      .experience-card > img { height: 285px; }
+      .experience-copy { padding: 24px; }
+      .experience-copy h3 { margin: 12px 0; }
+      .experience-copy p { font-size: 13px; }
+      .experience-copy button { background: transparent; }
+
+      .moodboard { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; }
+      .mood-option {
+        padding: 0 0 15px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        cursor: pointer;
+        text-align: left;
+      }
+      .mood-option img { height: 210px; }
+      .mood-option span { display: block; padding: 14px 14px 0; font-family: var(--serif); font-size: 19px; }
+      .mood-option.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+      .mood-preview {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-top: 25px;
+        padding: 30px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+      }
+      .mood-preview h3 { margin-bottom: 8px; }
+      .mood-preview p { margin-bottom: 0; }
+      .mood-swatches { display: flex; gap: 8px; }
+      .mood-swatches span { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border); }
+      .inspiration-list-wrap { margin-top: 45px; padding-top: 30px; border-top: 1px solid var(--border); }
+      #inspirationList { padding-left: 20px; color: var(--muted); }
+      .inspiration-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+      .package-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+      .package-card { display: flex; flex-direction: column; align-items: flex-start; padding: 32px 26px; border: 1px solid var(--border); background: var(--surface); }
+      .featured-package { border-color: var(--accent); box-shadow: var(--shadow); }
+      .package-label { color: var(--accent-dark); font-size: 9px; font-weight: 700; letter-spacing: .16em; }
+      .package-card h3 { margin: 16px 0; font-size: 27px; }
+      .package-intro { font-size: 13px; }
+      .package-card ul { flex: 1; width: 100%; padding-left: 18px; margin: 12px 0 28px; color: var(--muted); font-size: 12px; }
+      .package-card li { padding: 7px 0; }
+      .package-card .btn { width: 100%; margin-top: auto; }
+
+      .budget-layout { display: grid; grid-template-columns: 1.05fr .95fr; gap: 35px; align-items: start; }
+      .budget-controls, .budget-summary { padding: 30px; border: 1px solid var(--border); background: var(--surface); }
+      .form-field { margin-bottom: 20px; }
+      .form-field label { display: block; margin-bottom: 8px; color: var(--text); font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+      .form-field input:not([type="range"]), .form-field select, .form-field textarea,
+      .contact-form input, .contact-form select, .contact-form textarea {
+        display: block;
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 13px;
+        border: 1px solid var(--border);
+        border-radius: 0;
+        background: var(--bg);
+        color: var(--text);
+      }
+      input[type="range"] { width: 100%; accent-color: var(--accent); }
+      .range-row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 15px; }
+      .range-row output { min-width: 80px; color: var(--accent-dark); font-size: 12px; font-weight: 700; text-align: right; }
+      .budget-total-label { margin: 15px 0 4px; }
+      .budget-total { display: block; font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.25; overflow-wrap: anywhere; }
+      .budget-per-guest { margin: 7px 0 26px; font-size: 12px; }
+      .budget-breakdown { border-top: 1px solid var(--border); }
+      .budget-line { display: flex; justify-content: space-between; gap: 15px; padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+      .budget-line span:last-child { color: var(--text); font-weight: 600; text-align: right; }
+      .demo-note { margin: 22px 0 0; font-size: 11px; }
+
+      .faq-list { max-width: 850px; margin: 0 auto; border-top: 1px solid var(--border); }
+      .faq-item { border-bottom: 1px solid var(--border); }
+      .faq-item summary { padding: 23px 35px 23px 0; position: relative; cursor: pointer; font-family: var(--serif); font-size: 21px; list-style: none; }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after { position: absolute; right: 5px; content: "+"; color: var(--accent-dark); font-family: var(--sans); }
+      .faq-item[open] summary::after { content: "−"; }
+      .faq-item p { max-width: 720px; padding: 0 20px 18px 0; font-size: 13px; }
+
+      .contact-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 65px; align-items: start; }
+      .contact-sidebar { padding: 32px; background: var(--surface-alt); }
+      .contact-sidebar h3 { margin-top: 12px; }
+      .contact-detail { padding: 17px 0; border-bottom: 1px solid var(--border); }
+      .contact-detail strong { display: block; margin-bottom: 5px; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+      .contact-detail p { margin-bottom: 0; font-size: 13px; }
+      .contact-form { padding: 35px; border: 1px solid var(--border); background: var(--surface); }
+      .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 18px; }
+      .contact-form .form-field { margin-bottom: 18px; }
+      .contact-form label { display: block; margin-bottom: 7px; color: var(--text); font-size: 11px; font-weight: 700; }
+      .contact-form textarea { min-height: 120px; resize: vertical; }
+      .contact-form fieldset { margin: 0 0 20px; padding: 15px; border: 1px solid var(--border); }
+      .contact-form legend { padding: 0 8px; font-size: 11px; font-weight: 700; }
+      .check-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .check-label { display: flex !important; align-items: flex-start; gap: 8px; font-size: 12px !important; font-weight: 400 !important; }
+      .check-label input { width: auto; min-height: auto; margin-top: 4px; accent-color: var(--accent); }
+      .form-notice { padding: 13px 15px; margin-bottom: 20px; background: var(--surface-alt); color: var(--muted); font-size: 11px; }
+      .form-status { margin-top: 18px; padding: 14px; border: 1px solid var(--accent); color: var(--text); font-size: 13px; }
+      .form-status:empty { display: none; }
+
+      .site-footer { background: #24211d; color: #f6eee2; }
+      .footer-main { display: grid; grid-template-columns: 1.4fr .8fr .8fr 1fr; gap: 40px; padding: 70px 0 55px; }
+      .footer-brand .brand-name { font-size: 29px; }
+      .footer-brand .brand-caption { color: #d6b67e; }
+      .footer-main p { max-width: 300px; margin-top: 20px; color: #c7bfb2; font-size: 12px; }
+      .footer-col h4 { margin-bottom: 18px; font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+      .footer-col a { display: block; width: fit-content; margin: 11px 0; color: #d0c6b8; font-size: 12px; }
+      .footer-col a:hover { color: #e4c58d; }
+      .newsletter-form { display: flex; margin-top: 16px; }
+      .newsletter-form input { width: 100%; min-width: 0; padding: 12px; border: 1px solid #62594d; background: #302b25; color: #fff; }
+      .newsletter-form button { padding: 0 14px; border: 1px solid #d0b17b; background: #d0b17b; color: #24211d; cursor: pointer; }
+      .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; padding: 22px 0; border-top: 1px solid #4a4339; color: #c7bfb2; font-size: 10px; }
+      .footer-bottom p { margin: 0; font-size: 10px; }
+
+      .progress-track { position: fixed; z-index: 1200; inset: 0 auto auto 0; width: 0; height: 3px; background: var(--accent); }
+      .back-top { position: fixed; z-index: 800; right: 22px; bottom: 22px; display: none; width: 45px; height: 45px; border: 1px solid var(--accent); background: var(--surface); color: var(--text); cursor: pointer; box-shadow: var(--shadow); }
+      .back-top.visible { display: block; }
+      .toast-region { position: fixed; z-index: 1600; right: 18px; bottom: 80px; display: grid; gap: 10px; width: min(350px, calc(100vw - 36px)); }
+      .toast { padding: 15px 18px; border-left: 3px solid var(--accent); background: var(--surface); color: var(--text); box-shadow: var(--shadow); font-size: 13px; }
+
+      .dialog-backdrop { position: fixed; z-index: 1400; inset: 0; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(10,9,8,.76); }
+      .dialog-panel { position: relative; width: min(800px, 100%); max-height: 90vh; overflow: auto; background: var(--surface); color: var(--text); box-shadow: 0 25px 100px rgba(0,0,0,.35); }
+      .dialog-panel img { max-height: 54vh; object-fit: cover; }
+      .dialog-content { padding: 27px; }
+      .dialog-content h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+      .dialog-close { position: absolute; z-index: 2; top: 12px; right: 12px; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.7); background: rgba(20,18,15,.8); color: #fff; cursor: pointer; font-size: 22px; }
+      .lightbox-panel { position: relative; width: min(1100px, 100%); }
+      .lightbox-panel img { width: 100%; max-height: 80vh; object-fit: contain; background: #111; }
+      .lightbox-caption { margin: 10px 0 0; color: #fff; text-align: center; font-size: 12px; }
+
+      @media (max-width: 1000px) {
+        .portfolio-grid, .destination-grid, .experience-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .package-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .footer-main { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+        .budget-layout { grid-template-columns: 1fr; }
+        .mood-option img { height: 180px; }
+      }
+      @media (max-width: 600px) {
+        .portfolio-grid, .destination-grid, .experience-grid, .package-grid { grid-template-columns: 1fr; }
+        .portfolio-image img { height: 310px; }
+        .destination-card > img, .experience-card > img { height: 270px; }
+        .detail-gallery { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+        .gallery-tile img { height: 200px; }
+        .moodboard { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+        .mood-option img { height: 150px; }
+        .mood-option span { font-size: 16px; }
+        .mood-preview { padding: 22px; }
+        .mood-preview .btn { width: 100%; }
+        .budget-controls, .budget-summary { padding: 21px; }
+        .form-grid, .check-grid { grid-template-columns: 1fr; }
+        .contact-form { padding: 22px; }
+        .contact-sidebar { padding: 25px; }
+        .footer-main { grid-template-columns: 1fr; gap: 28px; padding: 48px 0; }
+        .footer-bottom { flex-direction: column; }
+        .comparison-table th, .comparison-table td { padding: 13px 11px; }
+      }
+    </style>
+
+    <!-- PAGE 08: CONTACT & CONSULTATION -->
+    <section class="page-view" id="page-contact" data-view="contact" hidden>
+      <header class="page-hero" style="--page-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2200&q=85')">
+        <div class="page-hero-inner">
+          <p class="eyebrow">Every story starts somewhere</p>
+          <h1>Let's Begin Together.</h1>
+          <p>Tell us what you are dreaming of, and let's explore the possibilities for your celebration.</p>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="container contact-grid">
+          <aside class="contact-sidebar">
+            <p class="eyebrow">The first conversation</p>
+            <h3>Tell us what matters most.</h3>
+            <p>Whether your ideas are clear or still taking shape, this is a place to begin. Share the essentials and the feeling you hope to create.</p>
+            <div class="contact-detail"><strong>Our approach</strong><p>Personal planning, considered design and thoughtful coordination.</p></div>
+            <div class="contact-detail"><strong>Celebrations</strong><p>Weddings, destination celebrations and surrounding events.</p></div>
+            <div class="contact-detail"><strong>Availability</strong><p>Dates, destinations and service scope require confirmation. No appointment is booked through this demo.</p></div>
+            <div class="contact-detail"><strong>Social inspiration</strong><p><a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer">Pinterest ↗</a> &nbsp; <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></p></div>
+          </aside>
+
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-notice">Frontend demo: this form does not send email, book a consultation or store your information on a server. Please use sample information when exploring the website.</div>
+            <h3>Tell us about your celebration</h3>
+            <p>Fields marked with * are required.</p>
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="partnerOne">Your name *</label>
+                <input id="partnerOne" name="partnerOne" autocomplete="name" required maxlength="100" placeholder="Your name">
+              </div>
+              <div class="form-field">
+                <label for="partnerTwo">Partner's name</label>
+                <input id="partnerTwo" name="partnerTwo" maxlength="100" placeholder="Partner's name (optional)">
+              </div>
+              <div class="form-field">
+                <label for="contactEmail">Email address *</label>
+                <input id="contactEmail" name="email" type="email" autocomplete="email" required maxlength="150" placeholder="you@example.com">
+              </div>
+              <div class="form-field">
+                <label for="weddingDate">Preferred wedding date</label>
+                <input id="weddingDate" name="weddingDate" type="date">
+              </div>
+              <div class="form-field">
+                <label for="destinationChoice">Preferred destination *</label>
+                <select id="destinationChoice" name="destination" required>
+                  <option value="">Choose a destination style</option>
+                  <option>India</option><option>Italian countryside</option><option>European destination</option>
+                  <option>Coastal destination</option><option>Mountain retreat</option><option>Garden or private estate</option>
+                  <option>Still exploring</option><option>Other</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="guestCount">Estimated guest count *</label>
+                <select id="guestCount" name="guests" required>
+                  <option value="">Choose guest count</option>
+                  <option>Under 30</option><option>30–75</option><option>76–150</option>
+                  <option>151–250</option><option>251–500</option><option>500+</option><option>Not decided</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="celebrationType">Celebration type *</label>
+                <select id="celebrationType" name="celebration" required>
+                  <option value="">Choose celebration type</option>
+                  <option>Wedding</option><option>Destination wedding</option><option>Intimate wedding</option>
+                  <option>Engagement celebration</option><option>Multi-day celebration</option><option>Other event</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="budgetRange">Approximate total budget</label>
+                <select id="budgetRange" name="budget">
+                  <option value="">Prefer not to say</option>
+                  <option>Under ₹5 lakh</option><option>₹5–10 lakh</option><option>₹10–25 lakh</option>
+                  <option>₹25–50 lakh</option><option>₹50 lakh+</option><option>Still planning</option>
+                </select>
+              </div>
+            </div>
+
+            <fieldset>
+              <legend>What would you like help with?</legend>
+              <div class="check-grid">
+                <label class="check-label"><input type="checkbox" name="services" value="Full-Service Planning"> Full-service planning</label>
+                <label class="check-label"><input type="checkbox" name="services" value="Destination Planning"> Destination planning</label>
+                <label class="check-label"><input type="checkbox" name="services" value="Wedding Design"> Wedding design & florals</label>
+                <label class="check-label"><input type="checkbox" name="services" value="Venue Sourcing"> Venue sourcing</label>
+                <label class="check-label"><input type="checkbox" name="services" value="Day Coordination"> Day coordination</label>
+                <label class="check-label"><input type="checkbox" name="services" value="Guest Experience"> Guest experience</label>
+              </div>
+            </fieldset>
+
+            <div class="form-field">
+              <label for="contactMessage">Tell us a little more</label>
+              <textarea id="contactMessage" name="message" maxlength="3000" placeholder="The feeling, ideas or details you have in mind..."></textarea>
+            </div>
+            <button class="btn" type="submit">Submit demo inquiry ↗</button>
+            <div class="form-status" id="contactStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container">
+          <p class="eyebrow">The beginning of something beautiful</p>
+          <h2>Your forever deserves thoughtful beginnings.</h2>
+          <p>Let your celebration reflect the people you are, the people you love and the memories you want to make.</p>
+          <a class="btn btn-light" href="#home" data-page="home">Back to the beginning ↑</a>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- SHARED FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="#home" data-page="home">
+          <span class="brand-name">EverAfter Events</span>
+          <span class="brand-caption">The art of celebration</span>
+        </a>
+        <p>Thoughtfully designed weddings and meaningful celebrations, shaped around the people at their heart.</p>
+        <p>Personal by nature. Extraordinary by design.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#home" data-page="home">Home</a>
+        <a href="#story" data-page="story">Our Story</a>
+        <a href="#services" data-page="services">Wedding Services</a>
+        <a href="#portfolio" data-page="portfolio">Our Portfolio</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Discover</h4>
+        <a href="#destinations" data-page="destinations">Destinations & Venues</a>
+        <a href="#experiences" data-page="experiences">Signature Experiences</a>
+        <a href="#packages" data-page="packages">Packages & Planning</a>
+        <a href="#contact" data-page="contact">Contact & Consultation</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Letters from EverAfter</h4>
+        <p>Occasional inspiration for thoughtful celebrations. This signup is a local demo, not a mailing-list subscription.</p>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <label class="sr-only" for="newsletterEmail">Your email address</label>
+          <input type="email" id="newsletterEmail" required maxlength="150" placeholder="Your email address">
+          <button type="submit" aria-label="Submit demo newsletter signup">→</button>
+        </form>
+        <div id="newsletterStatus" class="form-status" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="currentYear">2026</span> EverAfter Events. Concept website demonstration.</p>
+      <p>All sample packages, project descriptions and budget figures are illustrative.</p>
+    </div>
+  </footer>
+
+  <!-- Shared overlays and utilities -->
+  <div class="progress-track" id="scrollProgress" aria-hidden="true"></div>
+  <button class="back-top" id="backTop" type="button" aria-label="Back to top">↑</button>
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="false"></div>
+
+  <div id="dialogRoot"></div>
+
+  <!-- =========================================================
+       EVERAFTER EVENTS — JAVASCRIPT ES6
+       ========================================================= -->
+  <script>
+    (() => {
+      "use strict";
+
+      const $ = (selector, root = document) => root.querySelector(selector);
+      const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+      const pageNames = [
+        "home", "story", "services", "portfolio",
+        "destinations", "experiences", "packages", "contact"
+      ];
+
+      const pageContainer = $("#pageContainer");
+      const mobileDrawer = $("#mobileDrawer");
+      const menuToggle = $("#menuToggle");
+      const themeToggle = $("#themeToggle");
+      const dialogRoot = $("#dialogRoot");
+      const toastRegion = $("#toastRegion");
+
+      let lastFocusedElement = null;
+      let activeDialog = null;
+      let selectedMood = "Romantic Garden";
+      const inspirationItems = new Set();
+
+      /* ---------- IMAGE FALLBACKS ---------- */
+      function setImageFallback(img) {
+        if (img.dataset.fallbackApplied === "true") return;
+        img.dataset.fallbackApplied = "true";
+        img.removeAttribute("srcset");
+        img.alt = (img.alt || "Wedding inspiration") + " (image unavailable)";
+        img.classList.add("image-fallback");
+        img.style.minHeight = "140px";
+      }
+
+      $$("img").forEach(img => {
+        img.addEventListener("error", () => setImageFallback(img));
+        if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) {
+          setImageFallback(img);
+        }
+      });
+
+      /* ---------- THEME SYSTEM ---------- */
+      function getInitialTheme() {
+        try {
+          const saved = localStorage.getItem("everafter-theme");
+          if (saved === "dark" || saved === "light") return saved;
+        } catch (_) {}
+        return window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark" : "light";
+      }
+
+      function applyTheme(theme, persist = true) {
+        const dark = theme === "dark";
+        document.body.classList.toggle("dark-mode", dark);
+        themeToggle.textContent = dark ? "☀" : "☾";
+        themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+        themeToggle.setAttribute("aria-pressed", String(dark));
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        if (themeColor) themeColor.content = dark ? "#171614" : "#f8f5ef";
+        if (persist) {
+          try { localStorage.setItem("everafter-theme", theme); } catch (_) {}
+        }
+      }
+
+      applyTheme(getInitialTheme(), false);
+
+      themeToggle.addEventListener("click", () => {
+        const next = document.body.classList.contains("dark-mode") ? "light" : "dark";
+        applyTheme(next);
+        showToast(next === "dark" ? "Dark mode enabled." : "Light mode enabled.");
+      });
+
+      /* ---------- PAGE NAVIGATION ---------- */
+      function closeMobileMenu() {
+        mobileDrawer.classList.remove("open");
+        mobileDrawer.setAttribute("aria-hidden", "true");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+        document.body.classList.remove("menu-open");
+      }
+
+      function openMobileMenu() {
+        mobileDrawer.classList.add("open");
+        mobileDrawer.setAttribute("aria-hidden", "false");
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuToggle.setAttribute("aria-label", "Close navigation menu");
+        menuToggle.textContent = "×";
+        document.body.classList.add("menu-open");
+      }
+
+      menuToggle.addEventListener("click", () => {
+        mobileDrawer.classList.contains("open") ? closeMobileMenu() : openMobileMenu();
+      });
+
+      function showPage(page, updateHistory = true) {
+        if (!pageNames.includes(page)) page = "home";
+
+        $$(".page-view").forEach(section => {
+          section.hidden = section.dataset.view !== page;
+        });
+
+        $$("[data-page]").forEach(link => {
+          const active = link.dataset.page === page;
+          if (link.classList.contains("nav-link")) {
+            link.classList.toggle("active", active);
+            if (active) link.setAttribute("aria-current", "page");
+            else link.removeAttribute("aria-current");
+          }
+        });
+
+        closeMobileMenu();
+
+        if (updateHistory) {
+          const nextHash = "#" + page;
+          if (window.location.hash !== nextHash) {
+            try { history.pushState({ page }, "", nextHash); }
+            catch (_) { window.location.hash = page; }
+          }
+        }
+
+        window.scrollTo({ top: 0, behavior: reducedMotion() ? "auto" : "smooth" });
+        document.title = ({
+          home: "EverAfter Events | Luxury Wedding Planning Studio",
+          story: "Our Story | EverAfter Events",
+          services: "Wedding Services | EverAfter Events",
+          portfolio: "Our Portfolio | EverAfter Events",
+          destinations: "Destinations & Venues | EverAfter Events",
+          experiences: "Signature Experiences | EverAfter Events",
+          packages: "Packages & Planning | EverAfter Events",
+          contact: "Contact & Consultation | EverAfter Events"
+        })[page];
+
+        updateScrollDecorations();
+      }
+
+      document.addEventListener("click", event => {
+        const link = event.target.closest("[data-page]");
+        if (!link) return;
+
+        const page = link.dataset.page;
+        if (!pageNames.includes(page)) return;
+
+        event.preventDefault();
+        showPage(page);
+      });
+
+      window.addEventListener("popstate", () => {
+        showPage(location.hash.replace("#", "") || "home", false);
+      });
+
+      function initInitialPage() {
+        const initial = location.hash.replace("#", "");
+        showPage(pageNames.includes(initial) ? initial : "home", false);
+      }
+
+      /* ---------- TOAST NOTIFICATIONS ---------- */
+      function showToast(message) {
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.textContent = message;
+        toastRegion.appendChild(toast);
+        window.setTimeout(() => toast.remove(), 3600);
+      }
+
+      /* ---------- REDUCED MOTION ---------- */
+      function reducedMotion() {
+        return window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      }
+
+      /* ---------- SCROLL PROGRESS AND BACK TO TOP ---------- */
+      function updateScrollDecorations() {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+        $("#scrollProgress").style.width = percent + "%";
+        $("#backTop").classList.toggle("visible", window.scrollY > 450);
+      }
+
+      window.addEventListener("scroll", updateScrollDecorations, { passive: true });
+      window.addEventListener("resize", updateScrollDecorations);
+      $("#backTop").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: reducedMotion() ? "auto" : "smooth" });
+      });
+
+      /* ---------- MODAL / DIALOG HELPERS ---------- */
+      function closeDialog() {
+        if (!activeDialog) return;
+        activeDialog.remove();
+        activeDialog = null;
+        dialogRoot.replaceChildren();
+        if (lastFocusedElement && document.contains(lastFocusedElement)) {
+          lastFocusedElement.focus();
+        }
+      }
+
+      function openDialog({ title, description, image, alt, kicker, extra, actions }) {
+        closeDialog();
+        lastFocusedElement = document.activeElement;
+
+        const backdrop = document.createElement("div");
+        backdrop.className = "dialog-backdrop";
+        backdrop.setAttribute("role", "presentation");
+
+        const panel = document.createElement("section");
+        panel.className = "dialog-panel";
+        panel.setAttribute("role", "dialog");
+        panel.setAttribute("aria-modal", "true");
+        panel.setAttribute("aria-labelledby", "dialogTitle");
+        panel.setAttribute("tabindex", "-1");
+
+        const close = document.createElement("button");
+        close.className = "dialog-close";
+        close.type = "button";
+        close.textContent = "×";
+        close.setAttribute("aria-label", "Close dialog");
+        close.addEventListener("click", closeDialog);
+        panel.appendChild(close);
+
+        if (image) {
+          const img = document.createElement("img");
+          img.src = image;
+          img.alt = alt || title;
+          img.addEventListener("error", () => setImageFallback(img));
+          panel.appendChild(img);
+        }
+
+        const content = document.createElement("div");
+        content.className = "dialog-content";
+
+        if (kicker) {
+          const eyebrow = document.createElement("p");
+          eyebrow.className = "eyebrow";
+          eyebrow.textContent = kicker;
+          content.appendChild(eyebrow);
+        }
+
+        const heading = document.createElement("h2");
+        heading.id = "dialogTitle";
+        heading.textContent = title;
+        content.appendChild(heading);
+
+        const copy = document.createElement("p");
+        copy.textContent = description || "";
+        content.appendChild(copy);
+
+        if (extra) {
+          const extraNode = document.createElement("p");
+          extraNode.textContent = extra;
+          content.appendChild(extraNode);
+        }
+
+        if (actions) {
+          const actionsNode = document.createElement("div");
+          actionsNode.className = "dialog-actions";
+          actionsNode.style.display = "flex";
+          actionsNode.style.flexWrap = "wrap";
+          actionsNode.style.gap = "10px";
+          actionsNode.style.marginTop = "20px";
+          actions.forEach(action => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = action.outline ? "btn btn-outline" : "btn";
+            btn.textContent = action.label;
+            btn.addEventListener("click", action.onClick);
+            actionsNode.appendChild(btn);
+          });
+          content.appendChild(actionsNode);
+        }
+
+        panel.appendChild(content);
+        backdrop.appendChild(panel);
+        dialogRoot.replaceChildren(backdrop);
+        activeDialog = backdrop;
+
+        backdrop.addEventListener("click", event => {
+          if (event.target === backdrop) closeDialog();
+        });
+
+        panel.addEventListener("keydown", event => {
+          if (event.key !== "Tab") return;
+          const focusable = $$('button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled])', panel);
+          if (!focusable.length) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        });
+
+        close.focus();
+      }
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+          closeDialog();
+          closeMobileMenu();
+        }
+      });
+
+      /* ---------- PORTFOLIO FILTERS ---------- */
+      $$(".filter-btn[data-filter]").forEach(button => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.filter;
+
+          $$(".filter-btn[data-filter]").forEach(other => {
+            const active = other === button;
+            other.classList.toggle("active", active);
+            other.setAttribute("aria-pressed", String(active));
+          });
+
+          $$(".portfolio-card").forEach(card => {
+            card.classList.toggle("is-filtered",
+              filter !== "all" && card.dataset.category !== filter);
+          });
+        });
+      });
+
+      /* ---------- PROJECT DETAILS AND LIGHTBOX ---------- */
+      $$(".portfolio-card").forEach(card => {
+        const button = $(".portfolio-image", card);
+        button.addEventListener("click", () => {
+          const img = $("img", card);
+          openDialog({
+            title: card.dataset.project,
+            description: card.dataset.description,
+            image: img.src,
+            alt: img.alt,
+            kicker: card.dataset.location,
+            extra: "Illustrative portfolio concept. This project description does not represent a verified completed client event.",
+            actions: [{
+              label: "Discuss a similar style ↗",
+              onClick: () => {
+                closeDialog();
+                showPage("contact");
+                const message = $("#contactMessage");
+                message.value = "I am interested in a celebration inspired by: " + card.dataset.project + ".";
+                $("#contactForm").scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth" });
+              }
+            }]
+          });
+        });
+      });
+
+      function openLightbox(src, alt) {
+        lastFocusedElement = document.activeElement;
+        const backdrop = document.createElement("div");
+        backdrop.className = "dialog-backdrop";
+
+        const panel = document.createElement("div");
+        panel.className = "lightbox-panel";
+        panel.setAttribute("role", "dialog");
+        panel.setAttribute("aria-modal", "true");
+        panel.setAttribute("aria-label", "Image preview");
+
+        const close = document.createElement("button");
+        close.className = "dialog-close";
+        close.type = "button";
+        close.textContent = "×";
+        close.setAttribute("aria-label", "Close image preview");
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = alt;
+        img.addEventListener("error", () => setImageFallback(img));
+
+        const caption = document.createElement("p");
+        caption.className = "lightbox-caption";
+        caption.textContent = alt;
+
+        panel.append(close, img, caption);
+        backdrop.appendChild(panel);
+        dialogRoot.replaceChildren(backdrop);
+        activeDialog = backdrop;
+        close.focus();
+
+        close.addEventListener("click", closeDialog);
+        backdrop.addEventListener("click", event => {
+          if (event.target === backdrop) closeDialog();
+        });
+      }
+
+      $$(".gallery-tile").forEach(button => {
+        button.addEventListener("click", () => {
+          openLightbox(button.dataset.image, button.dataset.alt);
+        });
+      });
+
+      /* ---------- DESTINATION FILTERS AND VENUE MODALS ---------- */
+      $$(".destination-filter").forEach(button => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.destination;
+
+          $$(".destination-filter").forEach(other => {
+            const active = other === button;
+            other.classList.toggle("active", active);
+            other.setAttribute("aria-pressed", String(active));
+          });
+
+          $$(".destination-card").forEach(card => {
+            card.classList.toggle("is-filtered",
+              filter !== "all" && card.dataset.destinationCategory !== filter);
+          });
+        });
+      });
+
+      function openVenueCard(card) {
+        openDialog({
+          title: card.dataset.venue,
+          description: card.dataset.details,
+          image: $("img", card).src,
+          alt: $("img", card).alt,
+          kicker: card.dataset.style,
+          extra: "Illustrative destination style only. No actual venue, booking, price or availability is being represented.",
+          actions: [{
+            label: "Ask about this style ↗",
+            onClick: () => {
+              closeDialog();
+              showPage("contact");
+              $("#destinationChoice").value =
+                card.dataset.destinationCategory === "coast" ? "Coastal destination" :
+                card.dataset.destinationCategory === "europe" ? "European destination" :
+                card.dataset.destinationCategory === "mountain" ? "Mountain retreat" :
+                "Garden or private estate";
+              $("#contactMessage").value = "I would like to explore this destination style: " + card.dataset.venue + ".";
+            }
+          }]
+        });
+      }
+
+      $$(".venue-detail-btn").forEach(button => {
+        button.addEventListener("click", () => openVenueCard(button.closest(".destination-card")));
+      });
+
+      $$(".comparison-select").forEach(button => {
+        button.addEventListener("click", () => {
+          const style = button.dataset.style;
+          const card = $$(".destination-card").find(item => item.dataset.style === style);
+          if (card) openVenueCard(card);
+          else {
+            showPage("contact");
+            $("#contactMessage").value = "I would like to explore this venue style: " + style + ".";
+          }
+        });
+      });
+
+      /* ---------- SIGNATURE EXPERIENCE INSPIRATION LIST ---------- */
+      $$(".inspiration-select").forEach(button => {
+        button.addEventListener("click", () => {
+          const idea = button.dataset.inspiration;
+          if (inspirationItems.has(idea)) {
+            inspirationItems.delete(idea);
+            button.innerHTML = "Add to inspiration <span>+</span>";
+            showToast("Removed from your inspiration list.");
+          } else {
+            inspirationItems.add(idea);
+            button.innerHTML = "Added to inspiration <span>✓</span>";
+            showToast("Added to your inspiration list.");
+          }
+          renderInspiration();
+        });
+      });
+
+      function renderInspiration() {
+        const list = $("#inspirationList");
+        list.replaceChildren();
+        $("#inspirationEmpty").hidden = inspirationItems.size > 0;
+
+        inspirationItems.forEach(idea => {
+          const item = document.createElement("li");
+          item.textContent = idea;
+          list.appendChild(item);
+        });
+      }
+
+      $("#clearInspiration").addEventListener("click", () => {
+        inspirationItems.clear();
+        $$(".inspiration-select").forEach(button => {
+          button.innerHTML = "Add to inspiration <span>+</span>";
+        });
+        renderInspiration();
+        showToast("Inspiration list cleared.");
+      });
+
+      const moodDescriptions = {
+        "Romantic Garden": "Soft textures, natural greenery and delicate floral details.",
+        "Modern Minimal": "Clean lines, restrained details and a considered contemporary palette.",
+        "Coastal Romance": "Airy tones, natural textures and a relaxed atmosphere inspired by the sea.",
+        "Timeless Elegance": "Classic proportions, graceful details and a warm, refined atmosphere."
+      };
+
+      $$(".mood-option").forEach(button => {
+        button.addEventListener("click", () => {
+          selectedMood = button.dataset.mood;
+          $$(".mood-option").forEach(other => {
+            const active = other === button;
+            other.classList.toggle("active", active);
+            other.setAttribute("aria-pressed", String(active));
+          });
+          $("#moodTitle").textContent = selectedMood;
+          $("#moodDescription").textContent = moodDescriptions[selectedMood];
+
+          const colors = button.dataset.colors.split(",");
+          $("#moodSwatches").replaceChildren(...colors.map(color => {
+            const swatch = document.createElement("span");
+            swatch.style.backgroundColor = color;
+            swatch.setAttribute("aria-label", "Palette colour " + color);
+            return swatch;
+          }));
+        });
+      });
+
+      $("#useMood").addEventListener("click", () => {
+        if (inspirationItems.has(selectedMood)) {
+          showToast("This mood is already in your inspiration list.");
+        } else {
+          inspirationItems.add(selectedMood);
+          renderInspiration();
+          showToast("Moodboard added to your inspiration list.");
+        }
+      });
+
+      $("#sendInspiration").addEventListener("click", () => {
+        if (!inspirationItems.size) {
+          showToast("Add at least one idea to your inspiration list first.");
+          return;
+        }
+        showPage("contact");
+        $("#contactMessage").value =
+          "My wedding inspiration: " + [...inspirationItems].join(", ") + ". Selected mood: " + selectedMood + ".";
+        $("#contactMessage").focus();
+        showToast("Your ideas have been copied into the local demo form. Nothing has been sent.");
+      });
+
+      /* ---------- PACKAGE SELECTION ---------- */
+      $$(".package-select").forEach(button => {
+        button.addEventListener("click", () => {
+          const chosenPackage = button.dataset.package;
+          showPage("contact");
+          $("#contactMessage").value = "I would like to discuss: " + chosenPackage + ".";
+          $("#contactForm").scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth" });
+          $("#contactMessage").focus({ preventScroll: true });
+        });
+      });
+
+      /* ---------- WEDDING BUDGET ESTIMATOR ---------- */
+      const budgetFields = [
+        { id: "venueBudget", label: "Venue" },
+        { id: "cateringBudget", label: "Catering" },
+        { id: "decorBudget", label: "Décor & flowers" },
+        { id: "photoBudget", label: "Photography" },
+        { id: "entertainmentBudget", label: "Entertainment" },
+        { id: "otherBudget", label: "Other expenses" }
+      ];
+
+      const rupees = new Intl.NumberFormat("en-IN", {
+        style: "currency", currency: "INR", maximumFractionDigits: 0
+      });
+
+      function safeBudgetValue(input) {
+        const value = Number(input.value);
+        if (!Number.isFinite(value)) return 0;
+        return Math.min(100000000, Math.max(0, value));
+      }
+
+      function updateBudget() {
+        const guestsInput = $("#budgetGuests");
+        const guests = Math.max(1, Number(guestsInput.value) || 1);
+        $("#budgetGuestsValue").textContent = guests + (guests === 1 ? " guest" : " guests");
+
+        let total = 0;
+        const breakdown = $("#budgetBreakdown");
+        breakdown.replaceChildren();
+
+        budgetFields.forEach(field => {
+          const input = $("#" + field.id);
+          const value = safeBudgetValue(input);
+          total += value;
+
+          const line = document.createElement("div");
+          line.className = "budget-line";
+
+          const label = document.createElement("span");
+          label.textContent = field.label;
+
+          const amount = document.createElement("span");
+          amount.textContent = rupees.format(value);
+
+          line.append(label, amount);
+          breakdown.appendChild(line);
+        });
+
+        $("#budgetTotal").textContent = rupees.format(total);
+        $("#budgetPerGuest").textContent =
+          rupees.format(total / guests) + " per guest (illustrative)";
+      }
+
+      $("#budgetGuests").addEventListener("input", updateBudget);
+      budgetFields.forEach(field => {
+        $("#" + field.id).addEventListener("input", updateBudget);
+      });
+
+      $("#resetBudget").addEventListener("click", () => {
+        $("#budgetGuests").value = 100;
+        $("#venueBudget").value = 300000;
+        $("#cateringBudget").value = 250000;
+        $("#decorBudget").value = 150000;
+        $("#photoBudget").value = 80000;
+        $("#entertainmentBudget").value = 50000;
+        $("#otherBudget").value = 70000;
+        updateBudget();
+        showToast("Example budget reset.");
+      });
+
+      /* ---------- CONTACT FORM VALIDATION: DEMO ONLY ---------- */
+      const contactForm = $("#contactForm");
+      const contactStatus = $("#contactStatus");
+
+      contactForm.addEventListener("submit", event => {
+        event.preventDefault();
+        contactStatus.textContent = "";
+
+        if (!contactForm.checkValidity()) {
+          contactForm.reportValidity();
+          contactStatus.textContent = "Please complete all required fields and enter a valid email address.";
+          contactStatus.setAttribute("role", "alert");
+          const invalid = contactForm.querySelector(":invalid");
+          if (invalid) invalid.focus();
+          return;
+        }
+
+        const weddingDate = $("#weddingDate").value;
+        if (weddingDate) {
+          const chosenDate = new Date(weddingDate + "T00:00:00");
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+
+          if (chosenDate < today) {
+            $("#weddingDate").setCustomValidity("Please choose today or a future date.");
+            $("#weddingDate").reportValidity();
+            $("#weddingDate").setCustomValidity("");
+            contactStatus.textContent = "Please choose a future wedding date or leave the date blank.";
+            contactStatus.setAttribute("role", "alert");
+            return;
+          }
+        }
+
+        const selectedServices = $$('input[name="services"]:checked', contactForm)
+          .map(input => input.value);
+
+        contactStatus.textContent =
+          "Demo confirmation: your form passed local validation. No email has been sent, no information has been saved to a server, and no consultation has been booked.";
+        contactStatus.setAttribute("role", "status");
+        contactStatus.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "nearest" });
+
+        console.info("EverAfter demo form validation completed. No data was transmitted.", {
+          selectedServiceCount: selectedServices.length
+        });
+      });
+
+      /* ---------- NEWSLETTER DEMO ---------- */
+      $("#newsletterForm").addEventListener("submit", event => {
+        event.preventDefault();
+        const email = $("#newsletterEmail");
+        const status = $("#newsletterStatus");
+        status.textContent = "";
+
+        if (!email.checkValidity() || !email.value.trim()) {
+          email.reportValidity();
+          status.textContent = "Please enter a valid email address.";
+          status.setAttribute("role", "alert");
+          return;
+        }
+
+        status.textContent =
+          "Demo only: your email has not been added to a mailing list or sent to a server.";
+        status.setAttribute("role", "status");
+        $("#newsletterForm").reset();
+      });
+
+      /* ---------- FOOTER YEAR ---------- */
+      $("#currentYear").textContent = new Date().getFullYear();
+
+      /* ---------- INITIAL RENDER ---------- */
+      initInitialPage();
+      updateBudget();
+      updateScrollDecorations();
+      renderInspiration();
+    })();
+  </script>
+</body>
+</html>
